@@ -65,7 +65,7 @@ class Config
         /**
          * Database name.
          */
-        define('DB_NAME', 'dbname');
+        define('DB_NAME', 'Eggzlist_db');
 
         /**
          * Database username.
@@ -75,7 +75,7 @@ class Config
         /**
          * Database password.
          */
-        define('DB_PASS', 'password');
+        define('DB_PASS', '');
 
         /**
          * PREFER to be used in database calls default is smvc_
