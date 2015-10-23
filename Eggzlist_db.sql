@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 23, 2015 at 02:26 AM
+-- Generation Time: Oct 23, 2015 at 08:29 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -83,7 +83,15 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `dname` varchar(128) NOT NULL,
   `email` varchar(256) NOT NULL,
   `phone` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`userID`, `sellerID`, `fname`, `lname`, `dname`, `email`, `phone`) VALUES
+(1, NULL, 'Ben', 'Matson', 'DragonMaster', 'master6@bogus.com', 1234567890),
+(2, NULL, 'Janet', 'Atkins', 'jatkins', 'jatkins@bogus.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -157,7 +165,7 @@ ALTER TABLE `Sellers`
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `WaitLists`
 --

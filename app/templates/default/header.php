@@ -39,5 +39,7 @@ $hooks = Hooks::get();
 //hook for running code after body tag
 $hooks->run('afterBody');
 ?>
-
+<div class="logoContainer" align="center">
+	<img src="pics/LogoTitle.png">
+</div>
 <div class="container">

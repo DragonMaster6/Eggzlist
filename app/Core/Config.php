@@ -37,7 +37,7 @@ class Config
         /**
          * Set default controller and method for legacy calls.
          */
-        define('DEFAULT_CONTROLLER', 'welcome');
+        define('DEFAULT_CONTROLLER', 'Users');
         define('DEFAULT_METHOD', 'index');
 
         /**
@@ -90,7 +90,7 @@ class Config
         /**
          * Optional create a constant for the name of the site.
          */
-        define('SITETITLE', 'V2.2');
+        define('SITETITLE', 'Eggzlist');
 
         /**
          * Optionall set a site email address.
