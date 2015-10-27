@@ -1,8 +1,11 @@
 <html>
 	<head>
 		<title> Eggzlist Home page </title>
+		<?php
+			$this->load->helper('html');
+			echo link_tag('assets/css/main.css');
+		?>
 	</head>
 	<body>
-
-		<h1 align="center"> Welcome to Eggzlist </h1>
+		<center> <?php echo img('assets/pics/LogoTitle.png'); ?> </center>
 		
