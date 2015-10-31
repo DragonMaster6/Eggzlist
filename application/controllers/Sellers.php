@@ -9,6 +9,7 @@ class Sellers extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Seller_model');
+		$this->load->model('Listing_model');
 		$this->load->helper('url');
 	}
 

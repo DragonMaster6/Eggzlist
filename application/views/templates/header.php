@@ -4,6 +4,7 @@
 		<?php
 			$this->load->helper('html');
 			echo link_tag('assets/css/main.css');
+			echo link_tag('assets/css/ol.css');
 		?>
 		<script src=<?php echo base_url('assets/scripts/jquery-2.1.4.min.js'); ?> ></script>
 		<script src=<?php echo base_url('assets/scripts/main.js'); ?>></script>

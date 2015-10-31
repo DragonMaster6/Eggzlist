@@ -1,5 +1,12 @@
 <?php
 /*
+=======
+<div id="map" class="map"></div>
+
+<input type="text" id="addrIn">
+<input type="button" id="searchLocButton" value="Click me">
+
+>>>>>>> Basic Storyboard template for Tuesday's meeting
 <table>
 	<tr>
 		<th> Name </th>
@@ -31,6 +38,7 @@
 		echo "<td>".$seller."</td>";
 		echo "</tr>";
 	}
+<<<<<<< HEAD
 */
 ?>
 
@@ -58,3 +66,9 @@
 	</div>
 
 </center>
+
+<div id="listing_container">
+	<center><h2> Listings </h3></center>
+	<div id="listings">
+	</div>
+</div>
