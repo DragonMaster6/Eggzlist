@@ -14,4 +14,10 @@ class User_model extends CI_Model{
 		$query = $this->db->get_where('users', array('slug' => $slug));
 		return $query->row_array();
 	}
+
+	public function getUserBySellerID($sellerID){
+		$query = $this->db->query("select * from Users where sellerID=".$this->db->escape($sellerID));
+		$result = $query->result_array();
+		return $result;
+	}
 }

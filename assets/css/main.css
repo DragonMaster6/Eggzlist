@@ -1,3 +1,22 @@
 body{
 	background-color: lightblue;
 }
+
+
+/* This is for the listing containers and its children */
+#listing_container{
+	margin: 0px;
+}
+
+.item{
+	background-color: #CBF7FF;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 3px;
+}
+
+.map{
+	height: 400px;
+	width: 100%;
+	margin: 0px;
+}

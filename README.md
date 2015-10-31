@@ -3,6 +3,9 @@
 =
 
 This web Application uses the CodeIgniter MVC framework found here: http://www.codeigniter.com/
+APIs used for Mapping Technology
+- MapQuest Maps and Geocoding: 15,000 transaction a month for free
+- OpenLayers 3
 
 =
 

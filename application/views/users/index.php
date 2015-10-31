@@ -1,3 +1,8 @@
+<div id="map" class="map"></div>
+
+<input type="text" id="addrIn">
+<input type="button" id="searchLocButton" value="Click me">
+
 <table>
 	<tr>
 		<th> Name </th>
@@ -20,3 +25,15 @@
 		echo "</tr>";
 	}
 ?>
+</table>
+
+<div id="listing_container">
+	<center><h2> Listings </h3></center>
+	<div id="listings">
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+</script>
