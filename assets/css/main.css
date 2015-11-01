@@ -3,6 +3,12 @@ body{
 }
 
 
+/* This is for the main content of the page */
+#main_container{
+	width:67.5vw;
+	float: left;
+}
+
 /* This is for the listing containers and its children */
 #listing_container{
 	margin: 0px;
@@ -20,3 +26,14 @@ body{
 	width: 100%;
 	margin: 0px;
 }
+
+
+/* This is for the main menu container */
+#menu_container{
+	float:left;
+	margin: 0px;
+	background-color: #1DA5FF;
+	width: 12%;
+}
+
+/* This is for the ad space containers */

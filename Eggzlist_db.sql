@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 26, 2015 at 06:57 PM
+-- Generation Time: Oct 31, 2015 at 07:51 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -36,7 +36,15 @@ CREATE TABLE IF NOT EXISTS `Listings` (
   `finish` datetime DEFAULT NULL,
   `inventory` int(11) NOT NULL,
   `private` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Listings`
+--
+
+INSERT INTO `Listings` (`listID`, `sellerID`, `pickup`, `price`, `status`, `start`, `finish`, `inventory`, `private`) VALUES
+(1, 1, 0, 5, 0, '2015-10-28 00:00:00', NULL, 36, 0),
+(4, 1, 0, 6, 0, '2015-10-28 00:00:00', NULL, 24, 1);
 
 -- --------------------------------------------------------
 
@@ -64,10 +72,21 @@ CREATE TABLE IF NOT EXISTS `Sellers` (
   `feed` varchar(128) DEFAULT NULL,
   `eggrate` int(11) NOT NULL,
   `breeds` varchar(512) NOT NULL,
-  `addr` varchar(1024) DEFAULT NULL,
+  `street` varchar(512) NOT NULL,
+  `city` varchar(512) NOT NULL,
+  `state` varchar(2) NOT NULL,
+  `pcode` int(5) NOT NULL,
   `xroad` varchar(1024) DEFAULT NULL,
   `rating` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Sellers`
+--
+
+INSERT INTO `Sellers` (`sellerID`, `numChick`, `feed`, `eggrate`, `breeds`, `street`, `city`, `state`, `pcode`, `xroad`, `rating`) VALUES
+(1, 5, 'pikes beak ', 28, 'Leghorn', '1010 austin bluffs parkway', 'colorado springs', 'co', 80918, 'hen drive, rooster street', 0),
+(2, 10, 'Organic', 63, 'Plymouth Rock', '3616 sheffield lane', 'colorado springs', 'co', 80907, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -90,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `Users` (
 --
 
 INSERT INTO `Users` (`userID`, `sellerID`, `fname`, `lname`, `dname`, `email`, `phone`) VALUES
-(1, NULL, 'Ben', 'Matson', 'DragonMaster', 'master6@bogus.com', 1234567890),
-(2, NULL, 'Janet', 'Atkins', 'jatkins', 'jatkins@bogus.com', 2147483647);
+(1, 1, 'Ben', 'Matson', 'DragonMaster', 'master6@bogus.com', 1234567890),
+(2, 2, 'Janet', 'Atkins', 'jatkins', 'jatkins@bogus.com', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -116,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `WaitLists` (
 --
 ALTER TABLE `Listings`
   ADD PRIMARY KEY (`listID`),
-  ADD UNIQUE KEY `sellerID` (`sellerID`);
+  ADD UNIQUE KEY `listID` (`listID`);
 
 --
 -- Indexes for table `Notifications`
@@ -150,7 +169,7 @@ ALTER TABLE `WaitLists`
 -- AUTO_INCREMENT for table `Listings`
 --
 ALTER TABLE `Listings`
-  MODIFY `listID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `listID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `Notifications`
 --
@@ -160,7 +179,7 @@ ALTER TABLE `Notifications`
 -- AUTO_INCREMENT for table `Sellers`
 --
 ALTER TABLE `Sellers`
-  MODIFY `sellerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sellerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Users`
 --
