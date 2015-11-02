@@ -46,5 +46,10 @@
   <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="login" class="float-right submit-button" >Login</button>
   <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="user" class="float-right submit-button" >User Page</button>
 
+	<div id="map">This is where the map will go as soon as a valid key is given</div>
+
+	<div id="listings_container">
+		<div id="listings_header"> <h2> Listings </h2></div>
+	</div>
+
 </center>
-<div id="map">This is where the map will go as soon as a valid key is given</div>
