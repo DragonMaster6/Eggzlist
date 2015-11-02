@@ -9,9 +9,9 @@
 		<script src=<?php echo base_url('assets/scripts/main.js'); ?>></script>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL3FsYasGV2TYi3--ZDXSiH09fIt_wxUE"
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1WN40QmAVJ-Jy4z4SEMbDRgDna7p0hA"
             type="text/javascript"></script>
--->
+
     <script type="text/javascript">
     //<![CDATA[
 
@@ -33,6 +33,7 @@
       var infoWindow = new google.maps.InfoWindow;
 
       // Change this depending on the name of your PHP file
+      /*
       downloadUrl("phpsqlajax_genxml.php", function(data) {
         var xml = data.responseXML;
         var markers = xml.documentElement.getElementsByTagName("marker");
@@ -53,6 +54,7 @@
           bindInfoWindow(marker, map, infoWindow, html);
         }
       });
+*/
     }
 
     function bindInfoWindow(marker, map, infoWindow, html) {
@@ -85,6 +87,7 @@
   </script>
 
 	</head>
-	<body>
+	<body onload = "load()">
+
 		<center> <?php echo img('assets/pics/LogoTitle.png'); ?> </center>
 		
