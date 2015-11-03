@@ -50,6 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+// Routes for Listings
+$route['listings/search'] = 'listings/search';
+
 // Routes for the seller
 $route['seller/(:any)'] = 'sellers/show/$1';
 

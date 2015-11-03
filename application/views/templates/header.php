@@ -13,6 +13,7 @@
             type="text/javascript"></script>
 	</head>
 	<body onload = "load()">
-
+    <input type="hidden" id="base_url" value="<?php echo base_url();?>">
+    <input type="hidden" id="site_url" value="<?php echo site_url();?>">
 		<center> <?php echo img('assets/pics/eggzlist_header.png'); ?> </center>
 		

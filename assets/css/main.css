@@ -8,11 +8,12 @@ button{
 	background-color: #d40d0d; /*#F5F6CE;*/
 	padding: 15px;
 	color: #F5F6CE;
+	font-weight: bold;
 
 }
 
 
-/* temporary style for the map */
+/*************** temporary style for the map **************/
 #map{
 	margin-top: 5px;
 	width: 75%;
@@ -20,13 +21,45 @@ button{
 	border: 2px solid black;
 }
 
-/* Listings Style */
+#map_search_container{
+	margin: 5px;
+}
+
+#map_search{
+	padding: 15px;
+	border-style: none;
+	width: 30%;
+}
+
+/*************** Listings Style *****************/
 #listings_container{
 	margin: 0;
+	width: 75%;
+	background-color: #d40d0d;
 }
 
 #listings_header{
-	background-color: #d40d0d;
 	color: #F5F6CE;
-	width: 75%;
+	border-bottom: 2px solid #F5F6CE;
+}
+#item_container{
+	background-color: #d40d0d;
+	display: inline;
+}
+.item{
+	background-color: #FF4B48;
+	margin: 3px 2px;
+	font-size: 18pt;
+	color: #F5F6CE;
+	height: 50px;
+}
+.inventory{
+	float: left;
+	width: 30px;
+	height: 40px;
+	padding: 3px;
+
+}
+.seller_btn{
+	float: right;
 }
