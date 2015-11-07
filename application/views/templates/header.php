@@ -10,8 +10,9 @@
 		<script src=<?php echo base_url('assets/scripts/main.js'); ?>></script>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1WN40QmAVJ-Jy4z4SEMbDRgDna7p0hA"
+<!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBc1WN40QmAVJ-Jy4z4SEMbDRgDna7p0hA"
             type="text/javascript"></script>
+-->
 	</head>
 	<body onload = "load()">
     <input type="hidden" id="base_url" value="<?php echo base_url();?>">

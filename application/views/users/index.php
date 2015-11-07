@@ -54,18 +54,28 @@
 */
 ?>
 
-
 <center>
-  <button onClick="gotoURL('<?php echo site_url('users/create');?>')"> Create New Listing (Working)</button>
+	<div id="error_container">
+	</div>
+	<div id="menu_container">
+  	<?php
+  		// Dont forget that the JS scripte has a gotoURL method
+  		// Determine the buttons that need to be shown based on authentication
+  		if(empty($user)){
+			echo "Username: <input type='text' id='username' value='display name'>
+				Password: <input type='password' id='password'>
+				<button id='login_btn'>Login</button>";  			
+  			echo "<button> About us </button>";
+  		}else{
+  			echo "<button> Create Listing </button>
+  				<button> Profile </button>
+  				<button> About us </button>
+  				<button id='logout_btn'> Logout </button>
+  				Welcome back: ".$user_name;
+  		}
 
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="create" class="float-left submit-button" >Create New Listing</button>
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="viewlistings" class="float-left submit-button" >View Listings</button>
-
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="login" class="float-left submit-button" >About Eggzlist</button>
-
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="login" class="float-right submit-button" >Login</button>
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="user" class="float-right submit-button" >User Page</button>
-
+  	?>
+  	</div>
 	<div id="map">This is where the map will go as soon as a valid key is given</div>
 	<div id="map_search_container">
 		<input type="text" id="map_search" class="input"><button id="map_search_btn" class="button">Search Listings</button>

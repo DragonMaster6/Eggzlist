@@ -11,10 +11,14 @@ var cities = {
   "westminster": [-105.036921, 39.836424]
 };
 
+
+/************* JQuery Section *****************/
 $(document).ready(function(){
   var BASE_DOMAIN = $('#base_url').val();
   var SITE_DOMAIN = $('#site_url').val();
 
+
+  // When the user clicks on the search for listings page
 	$("#map_search_btn").on("click", function(){
 		// Extract the user input
 		var location = $("#map_search").val().toLowerCase();
@@ -24,7 +28,7 @@ $(document).ready(function(){
       newMap(cities[location]);
     }
 
-		// Do some validation as well as search type: City only, Address search
+		// Do some validation as well as search type: City only, Address search, Keyword search?
 
 		// Send an AJAX request to get Listings according to the search
 		$.ajax({
@@ -63,8 +67,51 @@ $(document).ready(function(){
 			alert("There was an error getting Listing Data");
 		});
 	});
+
+  // When the user clicks the login button, send the request to the server and determine from there
+  $("#login_btn").on("click", function(){
+    var uname = $("#username").val();
+    var upass = $("#password").val();      // Note this will be in plain text now
+
+    // Do validation here: be sure to encrypt here and then decrypt in the model file
+
+    // Send the information to the server
+    $.ajax({
+      type: "post",
+      url: SITE_DOMAIN+"/users/login",
+      dataType: "json",
+      data: {user: uname, pass: upass}
+    })
+    .done(function(msg){
+      if(msg['access'] != -1){
+        gotoURL(SITE_DOMAIN);
+      }else{
+        // authentication failure
+        $("#error_container").html("Username or Password is incorrect");
+      }
+    })
+    .fail(function(msg){
+      alert("Server Error: Authentication Process failed");
+    });
+  });
+
+  // When the user is ready to logout, they click this button
+  $("#logout_btn").on("click", function(){
+    $.ajax({
+      type: "post",
+      url: SITE_DOMAIN+"/users/logout",
+      dataType: "json",
+    })
+    .done(function(msg){
+      gotoURL(SITE_DOMAIN);
+    })
+    .fail(function(msg){
+      alert("Server Error: De-Authentication Process failed");
+    });
+  });
 });
 
+/********** Other global functions that the site may need *************/
 function newMap(loc){
   var map = new google.maps.Map(document.getElementById("map"), {
     center: new google.maps.LatLng(loc[1],loc[0]),

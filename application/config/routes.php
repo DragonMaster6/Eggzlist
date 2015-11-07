@@ -57,6 +57,8 @@ $route['listings/search'] = 'listings/search';
 $route['seller/(:any)'] = 'sellers/show/$1';
 
 // Routes for the main page/user
+$route['users/login'] = 'users/login';
+$route['users/logout'] = 'users/logout';
 $route['default_controller'] = 'users/index';
 $route['(:any)'] = 'users/index/$1';
 
