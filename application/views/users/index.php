@@ -1,34 +1,4 @@
 <?php
-/*
-=======
-<div id="map" class="map"></div>
-=======
-<div id="menu_container">
-	<h4> This is the Menu </h4>
-	<hr>
-	Option 1 <br>
-	Option 2 <br>
-	Option 3 <br>
-</div>
-<div id="main_container">
-	<div id="map" class="map"></div>
->>>>>>> Modified DB and played with CSS
-
-	<input type="text" id="addrIn">
-	<input type="button" id="searchLocButton" value="Click me">
-
-<<<<<<< HEAD
->>>>>>> Basic Storyboard template for Tuesday's meeting
-<table>
-	<tr>
-		<th> Name </th>
-		<th> Phone </th>
-		<th> Email </th>
-		<th> SellerID </th>
-	</tr>
-*/
-?>
-<?php
 /* Daniel and Patrick:
  * Below is a template of how data from the database can be extracted and displayed
    Let me know when you are ready to extract data and I can provide you with the
@@ -50,7 +20,6 @@
 		echo "<td>".$seller."</td>";
 		echo "</tr>";
 	}
-<<<<<<< HEAD
 */
 ?>
 
@@ -88,5 +57,4 @@
 	</div>
 
 </center>
-
 

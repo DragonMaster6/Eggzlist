@@ -10,6 +10,7 @@ class Listing_model extends CI_Model{
 		$this->load->database();
 	}
 
+
 	// Functions to access different aspects of the listings table
 	public function getListingsByArea($area){
 		if(! empty($area)){
