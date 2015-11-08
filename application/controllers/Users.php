@@ -17,6 +17,9 @@ class Users extends CI_Controller{
 		// Retrieve stored session data
 		$data['user'] = $this->session->userdata('userId');
 		$data['user_name'] = $this->session->userdata('userName');
+		$data['user_seller'] = $this->session->userdata('sellerID');
+
+		// need to retrieve a notification count to display to the user
 
 		$this->load->view('templates/header');
 		$this->load->view('users/index', $data);
@@ -40,7 +43,8 @@ class Users extends CI_Controller{
 			// User passed, record it in the session now
 			$user_data = array(
 				'userId' => $attempt,
-				'userName' => $this->User_model->getUserName($attempt)
+				'userName' => $this->User_model->getUserName($attempt),
+				'sellerID' => $this->User_model->getUserSellerID($attempt)
 			);
 			$this->session->set_userdata($user_data);	
 			$data["access"]=0;

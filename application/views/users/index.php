@@ -36,18 +36,27 @@
 				<button id='login_btn'>Login</button>";  			
   			echo "<button> About us </button>";
   		}else{
-  			echo "<button> Create Listing </button>
-  				<button> Profile </button>
-  				<button> About us </button>
-  				<button id='logout_btn'> Logout </button>
-  				Welcome back: ".$user_name;
+  			if($user_seller != null){
+  				echo "<button> Create Listing </button>
+  					<button> Profile (Notification Count)</button>
+  					<button> About us </button>
+  					<button id='logout_btn'> Logout </button>
+  					Welcome back: ".$user_name;
+  			}else{
+  				echo "<button> Profile (Notification Count)</button>
+  					<button> About us </button>
+  					<button id='logout_btn'> Logout </button>
+  					Welcome back: ".$user_name;
+  			}
   		}
 
   	?>
   	</div>
-	<div id="map">This is where the map will go as soon as a valid key is given</div>
+	<div id="map">This is where the map will go</div>
 	<div id="map_search_container">
 		<input type="text" id="map_search" class="input"><button id="map_search_btn" class="button">Search Listings</button>
+		<br>
+		<h9> Example: Westminster, Denver, Colorado Springs (note: these are the only cities programmed for now)</h9>
 	</div>
 
 	<div id="listings_container">

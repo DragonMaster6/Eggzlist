@@ -30,6 +30,13 @@ class User_model extends CI_Model{
 		return $result;
 	}
 
+	// Retrieve a user's seller ID through their own id
+	public function getUserSellerID($uId){
+		$query = $this->db->query("select sellerID from Users where userID=".$this->db->escape($uId));
+		$result = $query->result_array();
+		return $result[0]['sellerID'];
+	}
+
 
 	// This will Log a user into the website based on the credentials provided
 	public function userAuth($user, $pass){
