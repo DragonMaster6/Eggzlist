@@ -53,7 +53,7 @@ $(document).ready(function(){
 						" | Inventory: "+item['inventory']+
 						" | Price/Carton: "+item['price']+
             "<button class='seller_btn'> Contact Seller </button>"+
-						"</div>";
+						"</div><hr>";
 				});
 				$("#item_container").html(htmlOut);
 			}

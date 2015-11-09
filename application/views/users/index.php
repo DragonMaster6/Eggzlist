@@ -46,6 +46,11 @@
   <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="login" class="float-right submit-button" >Login</button>
   <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="user" class="float-right submit-button" >User Page</button>
 
+	<div id="filter_container">
+		<!-- Patrick, this is where you will be putting your code for the filters -->
+		The filter box goes here
+	</div>
+
 	<div id="map">This is where the map will go as soon as a valid key is given</div>
 	<div id="map_search_container">
 		<input type="text" id="map_search" class="input"><button id="map_search_btn" class="button">Search Listings</button>

@@ -1,6 +1,9 @@
 body{
 	background-color: #F5F6CE;
-	background-image: url("../pics/white_wood.jpg");
+	background-image: url("../pics/field2.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 button{
@@ -16,7 +19,7 @@ button{
 /*************** temporary style for the map **************/
 #map{
 	margin-top: 5px;
-	width: 75%;
+	width: 65%;
 	height: 600px;
 	border: 2px solid black;
 }
@@ -35,22 +38,23 @@ button{
 #listings_container{
 	margin: 0;
 	width: 75%;
-	background-color: #d40d0d;
+	background-color: #EFEFEF; /*#d40d0d;*/
+	border: 3px solid black;
 }
 
 #listings_header{
-	color: #F5F6CE;
-	border-bottom: 2px solid #F5F6CE;
+	color: black; /*#F5F6CE;*/
+	border-bottom: 2px solid black;
 }
 #item_container{
-	background-color: #d40d0d;
+	background-color: white; /*#d40d0d;*/
 	display: inline;
 }
 .item{
-	background-color: #FF4B48;
+/*	background-color: white;/*#FF4B48;*/ */
 	margin: 3px 2px;
 	font-size: 18pt;
-	color: #F5F6CE;
+	color: black; /*#F5F6CE;*/
 	height: 50px;
 }
 .inventory{
@@ -62,4 +66,14 @@ button{
 }
 .seller_btn{
 	float: right;
+}
+
+/************* Filter Box Styles *************/
+#filter_container{
+	background-color: #EFEFEF;
+	border: 2px solid black;
+	float: left;
+	position: absolute;
+	margin-top: 5px;
+	width: 15%;
 }
