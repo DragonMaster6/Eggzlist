@@ -36,15 +36,34 @@
 
 
 <center>
-  <button onClick="gotoURL('<?php echo site_url('users/create');?>')"> Create New Listing (Working)</button>
-
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="create" class="float-left submit-button" >Create New Listing</button>
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="viewlistings" class="float-left submit-button" >View Listings</button>
-
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="login" class="float-left submit-button" >About Eggzlist</button>
-
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="login" class="float-right submit-button" >Login</button>
-  <button onclick="location.href = '/Applications/xampp/htdocs/application/views/create';" id="user" class="float-right submit-button" >User Page</button>
+  	<div id="error_container"></div>
+  	<div id="menu_container">
+  		<?php
+  			// dont forget that the JS script has a gotoURL method
+  			// determine the buttons that need to be shown based on authentication
+  			if(empty($user)){
+  				echo "Username: <input type='text' id='username'>
+  						Password: <input type='password' id='password'>
+  						<button id='login_btn'>Login</button>";
+  				echo "<button id='about_btn'> About us </button>";
+  			}else{
+  				// the guest has logged in. Now show the proper tools
+  				if($user_seller != null){
+  					echo "<button id='create_list_btn'> Your Listings </button>
+  							<button id='profile_btn'> Profile (Notification Count)</button>
+  							<button id='about_btn'> About us </button>
+  							<button id='logout_btn'> Logout </button>
+  							Welcome Back ".$user_name;
+  				}else{
+  					// user is a normal buyer
+  					echo "<button id='profile_btn'> Profile (Notification Count)</button>
+  							<button id='about_btn'> About us </button>
+  							<button id='logout_btn'> Logout </button>
+  							Welcome Back ".$user_name."!";
+  				}
+  			}
+  		?>
+  	</div>
 
 	<div id="filter_container">
 		<!-- Patrick, this is where you will be putting your code for the filters -->

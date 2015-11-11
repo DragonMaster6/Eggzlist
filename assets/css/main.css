@@ -34,6 +34,10 @@ button{
 	width: 30%;
 }
 
+#error_container{
+	background-color: red;
+	width: 65%;
+}
 /*************** Listings Style *****************/
 #listings_container{
 	margin: 0;
