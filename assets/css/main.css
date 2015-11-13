@@ -49,6 +49,7 @@ button{
 #listings_header{
 	color: black; /*#F5F6CE;*/
 	border-bottom: 2px solid black;
+	padding: 1px 7px;
 }
 #item_container{
 	background-color: white; /*#d40d0d;*/
@@ -80,4 +81,5 @@ button{
 	position: absolute;
 	margin-top: 5px;
 	width: 15%;
+	padding: 5px;
 }

@@ -65,9 +65,32 @@
   		?>
   	</div>
 
+	<!-- Filter Container -->
 	<div id="filter_container">
-		<!-- Patrick, this is where you will be putting your code for the filters -->
-		The filter box goes here
+		<h2>Filters</h2>
+		<hr>
+		Breeds<br>
+		<input type="checkbox" id="breed_filter" value="leghorn">Leg horn</input>
+		<input type="checkbox" id="breed_filter" value="marans">Marans</input>
+		<input type="checkbox" id="breed_filter" value="silkie">Silkie</input>
+		<input type="checkbox" id="breed_filter" value="other">Other</input><br>
+		
+		<hr>
+		Feed<br>
+		<input type="checkbox" id="feed_filter" value="organic">Organic</input>
+		<input type="checkbox" id="feed_filter" value="cornfeed">Corn Feed</input><br>
+		
+		<hr>
+		Egg Rate(Per Week)<br>
+		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="all" checked>All</input><br>
+		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="1-10">1 to 10 Eggs</input><br>
+		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="11-20">11 to 20 Eggs</input><br>
+		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="21-30">21 to 30 Eggs</input><br>
+		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="31-all">31 and more Eggs</input><br>
+		
+		<hr>
+		Price Range<br>
+		$<input type="text" id="price_start" size="3">To $<input type="text" id="price_fin" size="3"><button id="price_btn">Apply</button>
 	</div>
 
 	<div id="map">This is where the map will go as soon as a valid key is given</div>
@@ -76,7 +99,16 @@
 	</div>
 
 	<div id="listings_container">
-		<div id="listings_header"> <h2> Listings </h2></div>
+		<div id="listings_header">
+			<h2> Listings
+			<select id="sort_filter" name="sort_filter" style="float:left">
+				<option value="asc_price">Ascending Price</option>
+				<option value="dsc_price">Descending Price</option>
+				<option value="alpha"> Alphabetial </option>
+				<option value="dist"> Distance </option>
+			</select>
+			</h2>
+		</div>
 		<div id="item_container">
 		</div>
 	</div>
