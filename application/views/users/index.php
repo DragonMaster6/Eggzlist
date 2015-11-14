@@ -70,15 +70,15 @@
 		<h2>Filters</h2>
 		<hr>
 		Breeds<br>
-		<input type="checkbox" id="breed_filter" value="leghorn">Leg horn</input>
-		<input type="checkbox" id="breed_filter" value="marans">Marans</input>
-		<input type="checkbox" id="breed_filter" value="silkie">Silkie</input>
-		<input type="checkbox" id="breed_filter" value="other">Other</input><br>
+		<input type="checkbox" name="breed_filter" id="breed_filter" value="leghorn">Leg horn</input>
+		<input type="checkbox" name="breed_filter" id="breed_filter" value="marans">Marans</input>
+		<input type="checkbox" name="breed_filter" id="breed_filter" value="silkie">Silkie</input>
+		<input type="checkbox" name="breed_filter" id="breed_filter" value="other">Other</input><br>
 		
 		<hr>
 		Feed<br>
-		<input type="checkbox" id="feed_filter" value="organic">Organic</input>
-		<input type="checkbox" id="feed_filter" value="cornfeed">Corn Feed</input><br>
+		<input type="checkbox" name="feed_filter" id="feed_filter" value="organic">Organic</input>
+		<input type="checkbox" name="feed_filter" id="feed_filter" value="cornfeed">Corn Feed</input><br>
 		
 		<hr>
 		Egg Rate(Per Week)<br>

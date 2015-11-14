@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 // Routes for Listings
+$route['listings/filter'] = 'listings/filter';
 $route['listings/search'] = 'listings/search';
 $route['listings/create'] = 'listings/index';	// look at the plural. Listings refers to all
 $route['listing/create'] = 'listings/create';	// singular represents a single instance

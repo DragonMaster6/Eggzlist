@@ -115,6 +115,24 @@ $(document).ready(function(){
       alert("Server Error: De-Authentication Process failed");
     });
   });
+
+
+
+// When the user changes a filter option
+  $(":checkbox, :radio").on("change",function(){
+    var filterSel = [];   // contains the values of checked checkboxs and radio buttons
+    $(":checkbox, :radio").each(function(){
+      if($(this).prop("checked")){
+        // this box has been checked. Push to the variable list
+        filterSel.push($(this).val());
+      }
+    });
+
+    // With everything selected, make an ajax call
+    // Note to Ben: Make a Listings function to keep code DRY
+
+    alert(filterSel);
+  });
 // End of the Document ready function
 });
 

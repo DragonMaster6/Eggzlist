@@ -15,12 +15,12 @@ class Listings extends CI_Controller{
 		$this->load->library("session");
 	}
 
-	// Creation functions
+// Creation functions
 	public function create(){
 
 	}
 
-	// Readability functions
+// Readability functions
 
 	// display the main page for listing creation
 	public function index(){
@@ -46,7 +46,13 @@ class Listings extends CI_Controller{
 		echo json_encode($data);
 	}
 
-	// Update functions
+	// take the filter options and pass them to the model to retrieve listings based on user wants
+	public function filter(){
+		$filterVal = $this->input->post('filterSel');
 
-	// Deletion functions
+	}
+
+// Update functions
+
+// Deletion functions
 }
