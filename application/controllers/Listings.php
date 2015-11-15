@@ -42,14 +42,21 @@ class Listings extends CI_Controller{
 
 	public function search(){
 		$area = $this->input->post('area');
+
+		// Set a session variable for the last searched city/keyword
+		$this->session->set_userdata("search",$area);
+
 		$data["listings"] = $this->Listing_model->getListingsByArea($area);
 		echo json_encode($data);
 	}
 
 	// take the filter options and pass them to the model to retrieve listings based on user wants
 	public function filter(){
-		$filterVal = $this->input->post('filterSel');
+		// retrieve the inputs passed from the request
+		$filterVal['breeds'] = $this->input->post('breeds');
 
+		$data['listings'] = $this->Listing_model->getFilteredListings($filterVal);
+		echo json_encode($data);
 	}
 
 // Update functions

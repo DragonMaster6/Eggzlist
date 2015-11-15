@@ -22,7 +22,7 @@ $(document).ready(function(){
 
     // update the map's location
     if(cities[location] != null){
-      map = newMap(cities[location]);
+      map = newMap(cities[location], 11);
     }
 
 		// Do some validation as well as search type: City only, Address search
@@ -36,38 +36,7 @@ $(document).ready(function(){
     })
     .done(function(msg){
       // The call was successful and has the data we need
-      // check to make sure there isn't an empty array and display
-      var htmlOut = "";
-      if(msg.listings.length === 0){
-        $("#item_container").html("<div class='item'>There are no Listings for this area</div>");
-      }else{
-        // the following variable is for temporary purposes. Each user may have only one listing active?
-        var placedMarkers = [];
-
-        $.each(msg.listings, function(value){
-            var item = msg.listings[value];
-            var inventoryCnt = "";    // this var will help display current inventory images
-            // Determine the amount of inventory and display number of pics
-            // Note: Based on 12 eggs per carton
-            for(var i=0; i <= item['inventory']; i+=12){
-              inventoryCnt = inventoryCnt+"<img src='"+BASE_DOMAIN+"assets/pics/chick_pic.png' class='inventory'>";
-            }
-          htmlOut = htmlOut+"<div class='item' id='item_"+item['listID']+"> "+inventoryCnt+
-            "Seller: "+item['fname']+" "+item['lname']+
-            " | Inventory: "+item['inventory']+
-            " | Price/Carton: $"+item['price']+
-            "<button class='seller_btn'> Contact Seller </button>"+
-            "</div>";
-
-          // Place markers upon the map now
-          if($.inArray(item['userID'],placedMarkers) == -1){
-            // The marker doesn't exist so place one and add to the counter
-            placedMarkers.push(item['userID']);
-            placeMapMarker([item['lng'], item['lat']], map, item['dname']);
-          }
-        });
-        $("#item_container").html(htmlOut);
-      }
+      displayListings(msg.listings, map);
     })
     .fail(function(){
       // The server returned an error message and couldn't get the data
@@ -120,26 +89,90 @@ $(document).ready(function(){
 
 // When the user changes a filter option
   $(":checkbox, :radio, .pRange").on("change",function(){
-    var filterSel = [];   // contains the values of checked checkboxs and radio buttons
-    $(":checkbox, :radio").each(function(){
+    var breeds = "";
+
+    // get all the breed filter options
+    $(".breed_filter:checkbox").each(function(){
       if($(this).prop("checked")){
         // this box has been checked. Push to the variable list
-        filterSel.push($(this).val());
+        if(breeds == ""){
+          breeds = $(this).val();
+        }else{
+          breeds += ","+$(this).val();
+        }
       }
+    });
+
+    // get all the feed filter options
+    $("#feed_filter:checkbox").each(function(){
+
     });
 
     // With everything selected, make an ajax call
     // Note to Ben: Make a Listings function to keep code DRY
 
-    alert(filterSel);
+    $.ajax({
+      type: "post",
+      url: SITE_DOMAIN+"/listings/filter",
+      dataType: "json",
+      data: {breeds: breeds}
+    })
+    .done(function(msg){
+      map = newMap(cities['colorado springs'], 8);
+      displayListings(msg.listings, map)
+    })
+    .fail(function(){
+      alert("Filtering has failed");
+    });
   });
 // End of the Document ready function
+
+
+
+
+// Generate a new listings set
+function displayListings(listings, map){
+      var htmlOut = "";
+      // check to make sure there isn't an empty array and display
+      if(listings.length === 0){
+        $("#item_container").html("<div class='item'>There are no Listings for this search</div>");
+      }else{
+        // the following variable is for temporary purposes. Each user may have only one listing active?
+        var placedMarkers = [];
+
+        $.each(listings, function(value){
+            var item = listings[value];
+            var inventoryCnt = "";    // this var will help display current inventory images
+            // Determine the amount of inventory and display number of pics
+            // Note: Based on 12 eggs per carton
+            for(var i=0; i <= item['inventory']; i+=12){
+              inventoryCnt = inventoryCnt+"<img src='"+BASE_DOMAIN+"assets/pics/chick_pic.png' class='inventory'>";
+            }
+          htmlOut = htmlOut+"<div class='item' id='item_"+item['listID']+"> "+inventoryCnt+
+            "Seller: "+item['fname']+" "+item['lname']+
+            " | Inventory: "+item['inventory']+
+            " | Price/Carton: $"+item['price']+
+            "<button class='seller_btn'> Contact Seller </button>"+
+            "</div>";
+
+          // Place markers upon the map now
+          if($.inArray(item['userID'],placedMarkers) == -1){
+            // The marker doesn't exist so place one and add to the counter
+            placedMarkers.push(item['userID']);
+            placeMapMarker([item['lng'], item['lat']], map, item['dname']);
+          }
+        });
+        $("#item_container").html(htmlOut);
+      }
+  }
 });
 
-function newMap(loc){
+
+/************ MAP FUNCTIONS ****************/
+function newMap(loc, zoom){
   var map = new google.maps.Map(document.getElementById("map"), {
     center: new google.maps.LatLng(loc[1],loc[0]),
-    zoom: 11,
+    zoom: zoom,
     mayTypeId: 'roadmap'
   });
 

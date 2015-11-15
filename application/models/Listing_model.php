@@ -38,6 +38,37 @@ class Listing_model extends CI_Model{
 		return $result[0];
 	}
 
+	// Based upon the filters given, search for listings matching this criteria
+	public function getFilteredListings($filters){
+		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.lat, s.lng, l.price, l.inventory  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID");
+		$listResult = $query->result_array();
+		$result = [];
+
+		// check to make sure there are filters to apply
+		if(!empty($filters['breeds'])){
+			// filter out the chicken breeds the user wants
+			foreach($listResult as $key=>$listing){
+				$foundBreed = FALSE;		// determines if a breed was found in an entry
+				foreach(explode(",", $filters['breeds']) as $breed){
+					if(stristr($listing['breeds'], $breed) != FALSE){
+						// A breed was found, keep the entry
+						$foundBreed = TRUE;
+					}
+				}
+
+				// Remove any entries that didn't make it
+				if($foundBreed == TRUE){
+					array_push($result, $listing);
+				}
+			}
+		}else{
+			$result = $listResult;
+		}
+
+		// filter out the chicken feed the user wants
+		return $result;
+	}
+
 // UPDATE methods
 
 

@@ -36,7 +36,11 @@
 
 
 <center>
-  	<div id="error_container"></div>
+  	<div id="error_container">
+  		<?php
+  			
+  		?>
+  	</div>
   	<div id="menu_container">
   		<?php
   			// dont forget that the JS script has a gotoURL method
@@ -70,10 +74,10 @@
 		<h2>Filters</h2>
 		<hr>
 		Breeds<br>
-		<input type="checkbox" name="breed_filter" id="breed_filter" value="leghorn">Leg horn</input>
-		<input type="checkbox" name="breed_filter" id="breed_filter" value="marans">Marans</input>
-		<input type="checkbox" name="breed_filter" id="breed_filter" value="silkie">Silkie</input>
-		<input type="checkbox" name="breed_filter" id="breed_filter" value="other">Other</input><br>
+		<input type="checkbox" name="breed_filter" class="breed_filter" value="leghorn">Leg horn</input>
+		<input type="checkbox" name="breed_filter" class="breed_filter" value="marans">Marans</input>
+		<input type="checkbox" name="breed_filter" class="breed_filter" value="silkie">Silkie</input>
+		<input type="checkbox" name="breed_filter" class="breed_filter" value="other">Other</input><br>
 		
 		<hr>
 		Feed<br>
