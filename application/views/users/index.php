@@ -90,7 +90,7 @@
 		
 		<hr>
 		Price Range<br>
-		$<input type="text" id="price_start" size="3">To $<input type="text" id="price_fin" size="3"><button id="price_btn">Apply</button>
+		$<input type="text" id="price_start" class="pRange" value="1" size="3">To $<input type="text" id="price_fin" class="pRange" value="10" size="3"><button id="price_btn">Apply</button>
 	</div>
 
 	<div id="map">This is where the map will go as soon as a valid key is given</div>

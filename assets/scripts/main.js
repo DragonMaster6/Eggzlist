@@ -119,7 +119,7 @@ $(document).ready(function(){
 
 
 // When the user changes a filter option
-  $(":checkbox, :radio").on("change",function(){
+  $(":checkbox, :radio, .pRange").on("change",function(){
     var filterSel = [];   // contains the values of checked checkboxs and radio buttons
     $(":checkbox, :radio").each(function(){
       if($(this).prop("checked")){
