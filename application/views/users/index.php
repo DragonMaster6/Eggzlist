@@ -55,13 +55,13 @@
   				if($user_seller != null){
   					echo "<button id='create_list_btn' onClick='gotoURL(\"".site_url("listings/show")."\")'> Your Listings </button>
   							<button id='profile_btn'> Profile (Notification Count)</button>
-  							<button id='about_btn'> About us </button>
+  							<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
   							<button id='logout_btn'> Logout </button>
   							Welcome Back ".$user_name;
   				}else{
   					// user is a normal buyer
   					echo "<button id='profile_btn'> Profile (Notification Count)</button>
-  							<button id='about_btn'> About us </button>
+  							<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
   							<button id='logout_btn'> Logout </button>
   							Welcome Back ".$user_name."!";
   				}

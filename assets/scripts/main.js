@@ -295,11 +295,19 @@ function load() {
     function doNothing() {}
 
 function placeMapMarker(loc, map, title){
-  //var image = BASE_DOMAIN+"/assets/pics/chick_pic.png";
+  //var image = "http://localhost/assets/pics/chick_pic.png";
+  var image = {
+    url: 'http://localhost/assets/pics/chick_pic.png',
+    size: new google.maps.Size(150,150),
+    origin: new google.maps.Size(0,0),
+    anchor: new google.maos.Point(75, 75),
+    scaledSize: new google.maps.Size(50,50)
+  };
+
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(loc[1], loc[0]),
     map: map,
-    title: title
-   // icon: image
+    title: title,
+    icon: image
   });
 }
