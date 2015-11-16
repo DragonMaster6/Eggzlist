@@ -1,29 +1,32 @@
 body{
+ 
 	background-color: #F5F6CE;
-	background-image: url("../pics/field2.jpg");
+	background-image: url("../pics/farm1.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 }
 
 button{
-	border-style: none;
-	background-color: #d40d0d; /*#F5F6CE;*/
+	border: 1px ridge #d8a555;
+	background-color: #942b35; /*#F5F6CE;*/
 	padding: 15px;
 	color: #F5F6CE;
 	font-weight: bold;
+	box-shadow: -3px 3px 1px #333333;
 
 }
 
 table{
 background-color: #aaaaaa;
-border: 1px solid #000000;
+border: 1px ridge #242728;
 width: 75%;
+box-shadow: -3px 3px 1px #333333;
 }
 
 td{
-border: 1px solid #000000;
-background-color: #ffffff;
+border: 1px ridge #242728;
+background-color: #eeedeb;
 }
 
 
@@ -32,7 +35,8 @@ background-color: #ffffff;
 	margin-top: 5px;
 	width: 65%;
 	height: 600px;
-	border: 2px solid black;
+	border: 2px ridge #242728;
+
 }
 
 #map_search_container{
@@ -43,34 +47,42 @@ background-color: #ffffff;
 	padding: 15px;
 	border-style: none;
 	width: 30%;
+    box-shadow: -3px 3px 1px #333333;
+
 }
 
 #error_container{
-	background-color: red;
+	background-color: #942b35;
 	width: 65%;
 }
 /*************** Listings Style *****************/
 #listings_container{
 	margin: 0;
 	width: 75%;
-	background-color: #EFEFEF; /*#d40d0d;*/
-	border: 3px solid black;
+	background-color: #eeedeb; /*#d40d0d;*/
+	border: 2px ridge #242728;
+	background-image: url("../pics/notebookpaper.png");
+
 }
 
 #listings_header{
-	color: black; /*#F5F6CE;*/
-	border-bottom: 2px solid black;
-	padding: 1px 7px;
+	font-size: 150%;
+    margin-bottom: 15px;
+	color: #242728; /*#F5F6CE;*/
+	border-bottom: 2px ridge #242728;
+	padding: 1px 0px;
+	background-color: #ecedd5;
+	box-shadow: -3px 3px 1px #333333;
 }
 #item_container{
-	background-color: white; /*#d40d0d;*/
+	background-color: #eeedeb; /*#d40d0d;*/
 	display: inline;
 }
 .item{
 /*	background-color: white;/*#FF4B48;*/ */
 	margin: 3px 2px;
 	font-size: 18pt;
-	color: black; /*#F5F6CE;*/
+	color: #242728; /*#F5F6CE;*/
 	height: 50px;
 }
 .inventory{
@@ -86,11 +98,24 @@ background-color: #ffffff;
 
 /************* Filter Box Styles *************/
 #filter_container{
-	background-color: #EFEFEF;
-	border: 2px solid black;
+	background-color: #eeedeb;
+	border: 0px ridge #242728;
 	float: left;
 	position: absolute;
 	margin-top: 5px;
 	width: 15%;
 	padding: 5px;
+    box-shadow: -3px 3px 1px #333333;
+    background-image: url("../pics/notebookpaper.png");
+}
+
+#welcome{
+	border: 1px ridge #d8a555;
+	background-color: #ecedd5; /*#F5F6CE;*/
+	padding: 15px;
+	width: 50%;
+	color: #242728;
+	font-weight: bold;
+	box-shadow: -3px 3px 1px #333333;
+
 }
