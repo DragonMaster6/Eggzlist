@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2015 at 04:09 AM
+-- Generation Time: Nov 16, 2015 at 04:54 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `Listings` (
   `listID` int(11) NOT NULL,
   `sellerID` int(11) NOT NULL,
   `title` varchar(1024) NOT NULL,
+  `description` varchar(2048) NOT NULL,
   `pickup` tinyint(1) NOT NULL DEFAULT '0',
   `price` double NOT NULL,
   `status` int(11) NOT NULL,
@@ -43,17 +44,17 @@ CREATE TABLE IF NOT EXISTS `Listings` (
 -- Dumping data for table `Listings`
 --
 
-INSERT INTO `Listings` (`listID`, `sellerID`, `title`, `pickup`, `price`, `status`, `start`, `finish`, `inventory`, `private`) VALUES
-(1, 1, '', 0, 5, 0, '2015-10-28 00:00:00', NULL, 36, 0),
-(4, 1, '', 0, 6, 0, '2015-10-28 00:00:00', NULL, 24, 1),
-(5, 4, '', 1, 6, 1, '2015-11-04 00:00:00', NULL, 12, 0),
-(6, 4, '', 0, 6, 1, '2015-11-05 00:00:00', NULL, 24, 0),
-(7, 3, '', 1, 5, 1, '2015-11-06 00:00:00', NULL, 24, 0),
-(8, 3, '', 1, 5, 1, '2015-11-07 00:00:00', NULL, 36, 0),
-(9, 5, '', 1, 8, 1, '2015-11-08 00:00:00', NULL, 18, 0),
-(10, 5, '', 1, 8, 1, '2015-11-09 00:00:00', NULL, 18, 0),
-(11, 2, '', 0, 6, 1, '2015-11-11 00:00:00', NULL, 12, 0),
-(12, 2, '', 0, 6, 1, '2015-11-12 00:00:00', NULL, 24, 0);
+INSERT INTO `Listings` (`listID`, `sellerID`, `title`, `description`, `pickup`, `price`, `status`, `start`, `finish`, `inventory`, `private`) VALUES
+(1, 1, '', '', 0, 5, 0, '2015-10-28 00:00:00', NULL, 36, 0),
+(4, 1, '', '', 0, 6, 0, '2015-10-28 00:00:00', NULL, 24, 1),
+(5, 4, '', '', 1, 6, 1, '2015-11-04 00:00:00', NULL, 12, 0),
+(6, 4, '', '', 0, 6, 1, '2015-11-05 00:00:00', NULL, 24, 0),
+(7, 3, '', '', 1, 5, 1, '2015-11-06 00:00:00', NULL, 24, 0),
+(8, 3, '', '', 1, 5, 1, '2015-11-07 00:00:00', NULL, 36, 0),
+(9, 5, '', '', 1, 8, 1, '2015-11-08 00:00:00', NULL, 18, 0),
+(10, 5, '', '', 1, 8, 1, '2015-11-09 00:00:00', NULL, 18, 0),
+(11, 2, '', '', 0, 6, 1, '2015-11-11 00:00:00', NULL, 12, 0),
+(12, 2, '', '', 0, 6, 1, '2015-11-12 00:00:00', NULL, 24, 0);
 
 -- --------------------------------------------------------
 
