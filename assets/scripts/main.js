@@ -299,9 +299,9 @@ function placeMapMarker(loc, map, title){
   var image = {
     url: 'http://localhost/assets/pics/chick_pic.png',
     size: new google.maps.Size(150,150),
-    origin: new google.maps.Size(0,0),
-    anchor: new google.maos.Point(75, 75),
-    scaledSize: new google.maps.Size(50,50)
+    origin: new google.maps.Point(0,0),
+    anchor: new google.maps.Point(0,0)
+    //scaledSize: new google.maps.Size(50,50)
   };
 
   var marker = new google.maps.Marker({
