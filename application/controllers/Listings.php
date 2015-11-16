@@ -59,10 +59,13 @@ class Listings extends CI_Controller{
 		echo json_encode($data);
 	}
 
-		public function show(){
+	public function show(){
+		$sID = $_SESSION['sellerID'];
+		$data['listing'] = $this->Listing_model->getSellerListing($sID);
+
 		// retrieve the inputs passed from the request
 		$this->load->view("templates/header");
-		$this->load->view("listings/show");
+		$this->load->view("listings/show", $data);
 		$this->load->view("templates/footer");
 
 	}
