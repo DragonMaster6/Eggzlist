@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 16, 2015 at 04:54 AM
+-- Generation Time: Nov 16, 2015 at 05:25 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -45,9 +45,9 @@ CREATE TABLE IF NOT EXISTS `Listings` (
 --
 
 INSERT INTO `Listings` (`listID`, `sellerID`, `title`, `description`, `pickup`, `price`, `status`, `start`, `finish`, `inventory`, `private`) VALUES
-(1, 1, '', '', 0, 5, 0, '2015-10-28 00:00:00', NULL, 36, 0),
+(1, 1, 'Eggs for Sale near UCCS', 'Fresh Eggs every other day. Delicious Omelette Wednesdays', 0, 5, 0, '2015-10-28 00:00:00', NULL, 36, 0),
 (4, 1, '', '', 0, 6, 0, '2015-10-28 00:00:00', NULL, 24, 1),
-(5, 4, '', '', 1, 6, 1, '2015-11-04 00:00:00', NULL, 12, 0),
+(5, 4, 'BUY MY EGGS!!', 'Excellent source of protein and fresh every day!', 1, 6, 1, '2015-11-04 00:00:00', NULL, 12, 0),
 (6, 4, '', '', 0, 6, 1, '2015-11-05 00:00:00', NULL, 24, 0),
 (7, 3, '', '', 1, 5, 1, '2015-11-06 00:00:00', NULL, 24, 0),
 (8, 3, '', '', 1, 5, 1, '2015-11-07 00:00:00', NULL, 36, 0),
