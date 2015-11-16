@@ -43,6 +43,8 @@ $(document).ready(function(){
       alert("There was an error getting Listing Data");
     });
 	});
+
+
 // When the user clicks the login button, send the request to the server and determine from there
   $("#login_btn").on("click", function(){
     var uname = $("#username").val();
@@ -69,6 +71,7 @@ $(document).ready(function(){
       alert("Server Error: Authentication Process failed");
     });
   });
+
 
 // When the user is ready to logout, they click this button
   $("#logout_btn").on("click", function(){
@@ -125,8 +128,6 @@ $(document).ready(function(){
       alert("Filtering has failed");
     });
   });
-// End of the Document ready function
-
 
 
 
@@ -152,6 +153,7 @@ function displayListings(listings, map){
             "Seller: "+item['fname']+" "+item['lname']+
             " | Inventory: "+item['inventory']+
             " | Price/Carton: $"+item['price']+
+            "<button class='seller_btn onClick=\"gotoURL('"+SITE_DOMAIN+"/listings/showbuy/"+item['listID']+"')\">More Info</button>"+
             "<button class='seller_btn'> Contact Seller </button>"+
             "</div>";
 
@@ -165,6 +167,8 @@ function displayListings(listings, map){
         $("#item_container").html(htmlOut);
       }
   }
+
+// End of the Document ready function
 });
 
 
@@ -222,6 +226,7 @@ function load() {
             "Seller: "+item['fname']+" "+item['lname']+
             " | Inventory: "+item['inventory']+
             " | Price/Carton: $"+item['price']+
+            "<button class='seller_btn' onClick=\"gotoURL('http://localhost/index.php/listings/showbuy/"+item['listID']+"')\">More Info</button>"+
             "<button class='seller_btn'> Contact Seller </button>"+
             "</div>";
 

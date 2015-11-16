@@ -1,4 +1,6 @@
- <button type="button">Edit Listing</button> <button type="button">Delete Listing</button> 
+<center>
+
+<button type="button">Edit Listing</button> <button type="button">Delete Listing</button> 
 
 <div id = "seller_map">
 
@@ -8,7 +10,7 @@
 
 <table>
 <tr>
-	<th>
+	<th colspan="3">
 		<?php echo $listing['title'] ?>
 	</th>
 </tr>
@@ -29,12 +31,14 @@
 		<?php echo $listing['inventory'] ?>
 	</td>
 
-
-
-
-
+</tr>
+<tr>
+	<td colspan="3">
+	Description: 
+	<?php echo $listing['description']; ?>
+	</td>
 </tr>
 
 
-
 </table>
+</center>

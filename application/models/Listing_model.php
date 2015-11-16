@@ -38,6 +38,19 @@ class Listing_model extends CI_Model{
 		return $result[0];
 	}
 
+	// locate an individual listing by its ID
+	public function getListing($lID){
+		$result = -1;
+		if(!empty($sellerID)){
+			$query = $this->db->query("select * from Listings where listID=".$this->db->escape($lID));
+			if(!empty($query)){
+				$result = $query->result_array();
+			}
+		}
+
+		return $result[0];
+	}
+
 	// Based upon the filters given, search for listings matching this criteria
 	public function getFilteredListings($filters){
 		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.lat, s.lng, l.price, l.inventory  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID");

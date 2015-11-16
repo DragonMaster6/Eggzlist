@@ -16,5 +16,9 @@
 	<body onload = "load()">
     <input type="hidden" id="base_url" value="<?php echo base_url();?>">
     <input type="hidden" id="site_url" value="<?php echo site_url();?>">
-		<center> <?php echo img('assets/pics/eggzlist_header.png'); ?> </center>
+		<center>
+			<a href="<?php echo site_url(); ?>">
+			<?php echo img('assets/pics/eggzlist_header.png'); ?>
+			</a>
+		</center>
 		
