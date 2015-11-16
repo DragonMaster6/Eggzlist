@@ -26,6 +26,12 @@ class Users extends CI_Controller{
 		$this->load->view('users/index', $data);
 		$this->load->view('templates/footer');
 	}
+	
+	public function about(){
+		$this->load->view('templates/header');
+		$this->load->view('users/about');
+		$this->load->view('templates/footer');
+	}
 
 	public function create($page='create'){
 		$this->load->view('templates/header');

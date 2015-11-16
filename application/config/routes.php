@@ -61,6 +61,7 @@ $route['listings/showbuy/(:any)'] = 'listings/showbuy/$1';
 $route['seller/(:any)'] = 'sellers/show/$1';
 
 // Routes for the main page/user
+$route['users/about'] = 'users/about';
 $route['default_controller'] = 'users/index';
 $route['(:any)'] = 'users/index/$1';
 
