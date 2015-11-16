@@ -53,7 +53,7 @@
   			}else{
   				// the guest has logged in. Now show the proper tools
   				if($user_seller != null){
-  					echo "<button id='create_list_btn' onClick='gotoURL(\"".site_url("listings/create")."\")'> Your Listings </button>
+  					echo "<button id='create_list_btn' onClick='gotoURL(\"".site_url("listings/show")."\")'> Your Listings </button>
   							<button id='profile_btn'> Profile (Notification Count)</button>
   							<button id='about_btn'> About us </button>
   							<button id='logout_btn'> Logout </button>

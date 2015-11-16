@@ -64,9 +64,37 @@ class Listings extends CI_Controller{
 		$data['listing'] = $this->Listing_model->getSellerListing($sID);
 
 		// retrieve the inputs passed from the request
+
+
+
+
+
 		$this->load->view("templates/header");
-		$this->load->view("listings/show", $data);
-		$this->load->view("templates/footer");
+
+			if (is_null($sID))
+			{
+				$this->load->view("listing/showbuy", $data);
+			}
+			else {
+				$this->load->view("listings/show", $data);				
+			}
+	$this->load->view("templates/footer");
+
+	}
+
+		public function showbuy(){
+		$sID = $_SESSION['sellerID'];
+		$data['listing'] = $this->Listing_model->getSellerListing($sID);
+
+		// retrieve the inputs passed from the request
+
+
+
+
+
+	$this->load->view("templates/header");
+	$this->load->view("listings/showbuy", $data);
+	$this->load->view("templates/footer");
 
 	}
 

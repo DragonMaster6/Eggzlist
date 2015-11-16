@@ -1,5 +1,10 @@
  <button type="button">Edit Listing</button> <button type="button">Delete Listing</button> 
 
+<div id = "seller_map">
+
+
+</div>
+
 
 <table>
 <tr>
