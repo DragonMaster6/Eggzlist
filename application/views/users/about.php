@@ -1,4 +1,4 @@
-<? php
+<?php
 /*
 	This is the About Us page. All relevent Eggzlist company information
 	that the founders wish to display to the end users will be on this page.
