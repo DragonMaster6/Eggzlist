@@ -307,7 +307,7 @@ function placeMapMarker(loc, map, title){
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(loc[1], loc[0]),
     map: map,
-    title: title,
-    icon: image
+    title: title
+//    icon: image
   });
 }
