@@ -7,13 +7,7 @@
 
 
 <table>
-<tr>
-	<td>
-	<?php
-		echo "Has this button been pressed?: ".$button;
-	?>
-	</td>
-</tr>
+
 <tr>
 	<th colspan="3">
 		<?php echo $listing['title'] ?>

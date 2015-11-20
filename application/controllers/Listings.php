@@ -62,7 +62,6 @@ class Listings extends CI_Controller{
 	// Display the sellers current listings
 	public function show(){
 		$sID = $_SESSION['sellerID'];
-		$data['button'] = $this->input->get('button');
 		$data['listing'] = $this->Listing_model->getSellerListing($sID);
 
 		$this->load->view("templates/header");
