@@ -41,7 +41,7 @@ class Listing_model extends CI_Model{
 	// locate an individual listing by its ID
 	public function getListing($lID){
 		$result = -1;
-		if(!empty($sellerID)){
+		if(!empty($lID)){
 			$query = $this->db->query("select * from Listings where listID=".$this->db->escape($lID));
 			if(!empty($query)){
 				$result = $query->result_array();

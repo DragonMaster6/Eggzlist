@@ -53,7 +53,7 @@
   			}else{
   				// the guest has logged in. Now show the proper tools
   				if($user_seller != null){
-  					echo "<button id='create_list_btn' onClick='gotoURL(\"".site_url("listings/show")."\")'> Your Listings </button>
+  					echo "<button id='create_list_btn' onClick='gotoURL(\"".site_url("listings/show?button=hello")."\")'> Your Listings </button>
   							<button id='profile_btn'> Profile (Notification Count)</button>
   							<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
   							<button id='logout_btn'> Logout </button>
@@ -71,21 +71,19 @@
 
 	<!-- Filter Container -->
 	<div id="filter_container">
-		<h2>Filters</h2>
-		<hr>
-		Breeds<br>
+		<b>Breeds</b><br>
 		<input type="checkbox" name="breed_filter" class="breed_filter" value="leghorn">Leg horn</input>
 		<input type="checkbox" name="breed_filter" class="breed_filter" value="marans">Marans</input>
 		<input type="checkbox" name="breed_filter" class="breed_filter" value="silkie">Silkie</input>
 		<input type="checkbox" name="breed_filter" class="breed_filter" value="other">Other</input><br>
 		
 		<hr>
-		Feed<br>
+		<b>Feed</b><br>
 		<input type="checkbox" name="feed_filter" id="feed_filter" value="organic">Organic</input>
 		<input type="checkbox" name="feed_filter" id="feed_filter" value="cornfeed">Corn Feed</input><br>
 		
 		<hr>
-		Egg Rate(Per Week)<br>
+		<b>Egg Rate(Per Week)</b><br>
 		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="all" checked>All</input><br>
 		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="1-10">1 to 10 Eggs</input><br>
 		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="11-20">11 to 20 Eggs</input><br>
@@ -93,7 +91,7 @@
 		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="31-all">31 and more Eggs</input><br>
 		
 		<hr>
-		Price Range<br>
+		<b>Price Range</b><br>
 		$<input type="text" id="price_start" class="pRange" value="1" size="3">To $<input type="text" id="price_fin" class="pRange" value="10" size="3"><button id="price_btn">Apply</button>
 	</div>
 

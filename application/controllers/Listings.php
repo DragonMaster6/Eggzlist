@@ -59,8 +59,10 @@ class Listings extends CI_Controller{
 		echo json_encode($data);
 	}
 
+	// Display the sellers current listings
 	public function show(){
 		$sID = $_SESSION['sellerID'];
+		$data['button'] = $this->input->get('button');
 		$data['listing'] = $this->Listing_model->getSellerListing($sID);
 
 		$this->load->view("templates/header");
@@ -76,8 +78,9 @@ class Listings extends CI_Controller{
 
 	}
 
+	// Display a listing for the user to see
 	public function showbuy($lID){
-		$sID = $_SESSION['sellerID'];
+		//$sID = $_SESSION['sellerID'];
 		$data['listing'] = $this->Listing_model->getListing($lID);
 
 		// retrieve the inputs passed from the request
