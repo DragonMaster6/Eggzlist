@@ -1,8 +1,9 @@
 <center>
 
+<div id="error_container">
+</div>
+
 <div id = "seller_map">
-
-
 </div>
 
 

@@ -93,6 +93,9 @@ $(document).ready(function(){
 // When the user changes a filter option
   $(":checkbox, :radio, .pRange").on("change",function(){
     var breeds = "";
+    var feed = "";
+    var price = "";
+    var invent = "";
 
     // get all the breed filter options
     $(".breed_filter:checkbox").each(function(){
@@ -107,9 +110,30 @@ $(document).ready(function(){
     });
 
     // get all the feed filter options
-    $("#feed_filter:checkbox").each(function(){
-
+    $(".feed_filter:checkbox").each(function(){
+      if($(this).prop("checked")){
+        // this box has been checked
+        if(feed == ""){
+          feed = $(this).val();
+        }else{
+          feed += ","+$(this).val();
+        }
+      }
     });
+
+
+    // get the eggrate range
+    $(".eggrate_filter:radio").each(function(){
+      if($(this).prop("checked")){
+        // construct the eggrate string
+        if($(this).val() !== "all"){
+          invent = $(this).val();
+        }
+      }
+    });
+
+    // get the price range
+    price = $("#price_start").val()+","+$("#price_fin").val();
 
     // With everything selected, make an ajax call
     // Note to Ben: Make a Listings function to keep code DRY
@@ -118,7 +142,7 @@ $(document).ready(function(){
       type: "post",
       url: SITE_DOMAIN+"/listings/filter",
       dataType: "json",
-      data: {breeds: breeds}
+      data: {breeds: breeds, feed: feed, invent: invent, price: price}
     })
     .done(function(msg){
       map = newMap(cities['colorado springs'], 8);
@@ -151,6 +175,7 @@ function displayListings(listings, map){
             }
           htmlOut = htmlOut+"<div class='item' id='item_"+item['listID']+"> "+inventoryCnt+
             "Seller: "+item['fname']+" "+item['lname']+
+            " | Location: "+item['city']+
             " | Inventory: "+item['inventory']+
             " | Price/Carton: $"+item['price']+
             "<button class='seller_btn onClick=\"gotoURL('"+SITE_DOMAIN+"/listings/showbuy/"+item['listID']+"')\">More Info</button>"+
@@ -224,6 +249,7 @@ function load() {
             }
           htmlOut = htmlOut+"<div class='item' id='item_"+item['listID']+"> "+inventoryCnt+
             "Seller: "+item['fname']+" "+item['lname']+
+            " | Location: "+item['city']+
             " | Inventory: "+item['inventory']+
             " | Price/Carton: $"+item['price']+
             "<button class='seller_btn' onClick=\"gotoURL('http://localhost/index.php/listings/showbuy/"+item['listID']+"')\">More Info</button>"+

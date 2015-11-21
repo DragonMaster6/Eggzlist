@@ -54,6 +54,9 @@ class Listings extends CI_Controller{
 	public function filter(){
 		// retrieve the inputs passed from the request
 		$filterVal['breeds'] = $this->input->post('breeds');
+		$filterVal['feed'] = $this->input->post('feed');
+		$filterVal['inventory'] = $this->input->post('invent');
+		$filterVal['price'] = $this->input->post('price');
 
 		$data['listings'] = $this->Listing_model->getFilteredListings($filterVal);
 		echo json_encode($data);

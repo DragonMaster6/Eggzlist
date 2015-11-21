@@ -59,7 +59,7 @@ td{
 /*************** Listings Style *****************/
 #listings_container{
 	margin: 0;
-	width: 75%;
+	width: 90%;
 	background-color: #eeedeb; /*#d40d0d;*/
 	border: 2px ridge #242728;
 	background-image: url("../pics/notebookpaper.png");

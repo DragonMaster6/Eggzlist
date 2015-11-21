@@ -79,20 +79,21 @@
 		
 		<hr>
 		<b>Feed</b><br>
-		<input type="checkbox" name="feed_filter" id="feed_filter" value="organic">Organic</input>
-		<input type="checkbox" name="feed_filter" id="feed_filter" value="cornfeed">Corn Feed</input><br>
+		<input type="checkbox" name="feed_filter" class="feed_filter" value="organic">Organic</input>
+		<input type="checkbox" name="feed_filter" class="feed_filter" value="cornfeed">Corn Feed</input><br>
+		<input type="checkbox" name="feed_filter" class="feed_filter" value="pikes beak">Pikes Beak</input><br>
 		
 		<hr>
 		<b>Egg Rate(Per Week)</b><br>
-		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="all" checked>All</input><br>
-		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="1-10">1 to 10 Eggs</input><br>
-		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="11-20">11 to 20 Eggs</input><br>
-		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="21-30">21 to 30 Eggs</input><br>
-		<input type="radio" name="eggrate_filter" id="eggrate_filter" value="31-all">31 and more Eggs</input><br>
+		<input type="radio" name="eggrate_filter" class="eggrate_filter" value="all" checked>All</input><br>
+		<input type="radio" name="eggrate_filter" class="eggrate_filter" value="1,10">1 to 10 Eggs</input><br>
+		<input type="radio" name="eggrate_filter" class="eggrate_filter" value="11,20">11 to 20 Eggs</input><br>
+		<input type="radio" name="eggrate_filter" class="eggrate_filter" value="21,30">21 to 30 Eggs</input><br>
+		<input type="radio" name="eggrate_filter" class="eggrate_filter" value="31,999">31 and more Eggs</input><br>
 		
 		<hr>
 		<b>Price Range</b><br>
-		$<input type="text" id="price_start" class="pRange" value="1" size="3">To $<input type="text" id="price_fin" class="pRange" value="10" size="3"><button id="price_btn">Apply</button>
+		$<input type="text" id="price_start" class="pRange" value="1" size="3">To $<input type="text" id="price_fin" class="pRange" value="10" size="3">
 	</div>
 
 	<div id="map">This is where the map will go as soon as a valid key is given</div>

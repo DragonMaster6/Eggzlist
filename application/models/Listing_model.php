@@ -53,32 +53,14 @@ class Listing_model extends CI_Model{
 
 	// Based upon the filters given, search for listings matching this criteria
 	public function getFilteredListings($filters){
-		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.lat, s.lng, l.price, l.inventory  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID");
+		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, l.price, l.inventory  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID");
 		$listResult = $query->result_array();
-		$result = [];
 
-		// check to make sure there are filters to apply
-		if(!empty($filters['breeds'])){
-			// filter out the chicken breeds the user wants
-			foreach($listResult as $key=>$listing){
-				$foundBreed = FALSE;		// determines if a breed was found in an entry
-				foreach(explode(",", $filters['breeds']) as $breed){
-					if(stristr($listing['breeds'], $breed) != FALSE){
-						// A breed was found, keep the entry
-						$foundBreed = TRUE;
-					}
-				}
+		$result = $this->filter($listResult, $filters['breeds'], "breeds");
+		$result = $this->filter($result, $filters['feed'], "feed");
+		$result = $this->rangeFilter($result, $filters['inventory'], "inventory");
+		$result = $this->rangeFilter($result, $filters['price'], "price");
 
-				// Remove any entries that didn't make it
-				if($foundBreed == TRUE){
-					array_push($result, $listing);
-				}
-			}
-		}else{
-			$result = $listResult;
-		}
-
-		// filter out the chicken feed the user wants
 		return $result;
 	}
 
@@ -87,4 +69,58 @@ class Listing_model extends CI_Model{
 
 // DELETE methods
 
-}
+
+// MISC methods
+	private function filter($list, $filter, $type){
+		$result = [];
+
+		// check to make sure there is a filter to apply to
+		if(!empty($filter)){
+			// filter out the requested entries in the listing
+			foreach($list as $key=>$listing){
+				$found = FALSE;		// determines if an entry met the requirements
+
+				// if there is more than one requirement, break it down and test each one
+				foreach(explode(",", $filter) as $req){
+					if(stristr($listing[$type], $req) != FALSE){
+						// an entry matched the requirement, keep it
+						$found = TRUE;
+						break;
+					}
+				}
+
+				// Add an entry to the result if the req was found
+				// This is so that the entry doesn't appear more than once if multiple
+				// requirements were met
+				if($found == TRUE){
+					array_push($result, $listing);
+				}
+
+			}
+		}else{
+			$result = $list;
+		}
+
+		return $result;
+	}
+
+	private function rangeFilter($list, $filter, $type){
+		$result = [];
+
+		// check to make sure there is a filter to apply to
+		if(!empty($filter)){
+			// filter out the requested entries in the listing
+			foreach($list as $key=>$listing){
+				$range = explode(",", $filter);		// break down the range so that it can be checked
+				if($listing[$type] >= $range[0] and $listing[$type] <= $range[1]){
+					// the entry met the criteria
+					array_push($result, $listing);
+				}
+			}
+		}else{
+			$result = $list;
+		}
+
+		return $result;
+	}
+}// End of the Model Class
