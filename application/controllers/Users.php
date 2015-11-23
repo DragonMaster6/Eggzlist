@@ -69,4 +69,14 @@ class Users extends CI_Controller{
 		echo json_encode("");
 	}
 
+
+	/*********** Create a new user page **************/
+	public function signup(){
+
+		// Render the page
+		$this->load->view("templates/header");
+		$this->load->view("users/signup");
+		$this->load->view("templates/footer");
+	}
+
 }
