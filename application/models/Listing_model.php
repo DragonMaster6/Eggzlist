@@ -53,7 +53,7 @@ class Listing_model extends CI_Model{
 
 	// Based upon the filters given, search for listings matching this criteria
 	public function getFilteredListings($filters){
-		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, l.price, l.inventory  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID");
+		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, l.price, l.inventory  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null");
 		$listResult = $query->result_array();
 
 		$result = $this->filter($listResult, $filters['breeds'], "breeds");
