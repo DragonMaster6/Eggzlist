@@ -10,6 +10,12 @@ class Seller_model extends CI_Model{
 		$this->load->database();
 	}
 
+
+// CREATE methods
+
+
+// READ methods
+
 	// Information getting
 	public function getSellerInfo($seller){
 		if(! empty($seller)){
@@ -18,4 +24,14 @@ class Seller_model extends CI_Model{
 			return $result[0];
 		}
 	}
+	public function getLocation($sID){
+		$query = $this->db->query("select lat, lng from Sellers where sellerID=".$this->db->escape($sID));
+		$result = $query->result_array();
+		return $result[0];
+	}
+
+// UPDATE methods
+
+
+// DELETE methods
 }

@@ -9,6 +9,7 @@ class Listings extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Listing_model");
+		$this->load->model("Seller_model");
 
 		// load any other helper classes
 		$this->load->helper("url_helper");
@@ -84,6 +85,7 @@ class Listings extends CI_Controller{
 	public function showbuy($lID){
 		//$sID = $_SESSION['sellerID'];
 		$data['listing'] = $this->Listing_model->getListing($lID);
+		$data['location'] = $this->Seller_model->getLocation($data['listing']['sellerID']);
 
 		// retrieve the inputs passed from the request
 		$this->load->view("templates/header");

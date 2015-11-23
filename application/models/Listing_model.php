@@ -19,7 +19,7 @@ class Listing_model extends CI_Model{
 	// WARNING!: THE FOLLOWING QUERY WILL REVEAL PASSWORDS, HIGHLY CONSIDER SELECTING DESIRED ATTRIBUTES
 	public function getListingsByArea($area){
 		if(! empty($area)){
-			$query = $this->db->query("select * from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where s.city=".$this->db->escape($area).";");
+			$query = $this->db->query("select * from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where s.city=".$this->db->escape($area)." and finish is null;");
 			$result = $query->result_array();
 			return $result;
 		}
@@ -29,7 +29,7 @@ class Listing_model extends CI_Model{
 	public function getSellerListing($sellerID, $private=0){
 		$result = -1;
 		if(!empty($sellerID)){
-			$query = $this->db->query("select * from Listings where sellerID=".$this->db->escape($sellerID)." and private=".$this->db->escape($private));
+			$query = $this->db->query("select * from Listings where sellerID=".$this->db->escape($sellerID)." and private=".$this->db->escape($private)."and finish is null");
 			if(!empty($query)){
 				$result = $query->result_array();
 			}
@@ -42,7 +42,7 @@ class Listing_model extends CI_Model{
 	public function getListing($lID){
 		$result = -1;
 		if(!empty($lID)){
-			$query = $this->db->query("select * from Listings where listID=".$this->db->escape($lID));
+			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null and listID=".$this->db->escape($lID));
 			if(!empty($query)){
 				$result = $query->result_array();
 			}
@@ -60,7 +60,6 @@ class Listing_model extends CI_Model{
 		$result = $this->filter($result, $filters['feed'], "feed");
 		$result = $this->rangeFilter($result, $filters['inventory'], "inventory");
 		$result = $this->rangeFilter($result, $filters['price'], "price");
-
 		return $result;
 	}
 
