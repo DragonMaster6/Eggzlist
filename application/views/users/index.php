@@ -49,7 +49,8 @@
   				echo "<div id = 'welcome'> Username: <input type='text' id='username'>
   						Password: <input type='password' id='password'>
   						<button id='login_btn'>Login</button> ";
-  				echo "<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button></div>";
+  				echo "<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
+				<button onClick=\"gotoURL('".site_url('users/signup')."')\">Sign Up</button></div>";
   			}else{
   				// the guest has logged in. Now show the proper tools
   				if($user_seller != null){
