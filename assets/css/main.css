@@ -160,3 +160,13 @@ td{
 	font-weight: normal;
 
 }
+
+/******************* Sign Up Styling *****************/
+#signup_container{
+	background-image: url("../pics/notebookpaper.png");
+}
+
+#seller_content{
+	/*display: hidden;*/
+	
+}
