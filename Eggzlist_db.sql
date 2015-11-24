@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 23, 2015 at 05:39 PM
+-- Generation Time: Nov 23, 2015 at 08:40 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -67,8 +67,10 @@ CREATE TABLE IF NOT EXISTS `Notifications` (
   `noteID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
   `type` int(11) NOT NULL,
+  `subject` varchar(512) NOT NULL,
   `message` varchar(1024) NOT NULL,
-  `posted` datetime NOT NULL
+  `posted` datetime NOT NULL,
+  `eggs` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

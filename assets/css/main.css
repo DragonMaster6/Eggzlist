@@ -21,7 +21,7 @@ table{
 	background-color: #aaaaaa;
 	background-image: url("../pics/notebookpaper.png");
 	border: 1px ridge #242728;
-	width: 75%;
+	width: 65%;
 	box-shadow: -3px 3px 1px #333333;
 }
 
@@ -38,6 +38,12 @@ td{
 	height: 600px;
 	border: 2px ridge #242728;
 
+}
+#seller_map{
+	width: 300px;
+	height: 300px;
+	float:right;
+	margin: 5px;
 }
 
 #map_search_container{
@@ -79,6 +85,7 @@ td{
 	background-color: #eeedeb; /*#d40d0d;*/
 	display: inline;
 }
+
 .item{
 /*	background-color: white;/*#FF4B48;*/
 	margin: 3px 2px;
@@ -125,5 +132,31 @@ td{
 #about_container{
 	background-image: url("../pics/notebookpaper.png");
 	width: 65%;
+
+}
+
+/************ Listings Post Styling *****************/
+#listing_info_container{
+	background-color: #aaaaaa;
+	background-image: url("../pics/notebookpaper.png");
+	border: 1px ridge #242728;
+	width: 65%;
+	box-shadow: -3px 3px 1px #333333;
+	font-weight: bold;
+	position: relative;
+	text-align: center;
+}
+
+#seller_info{
+	font-weight: normal;
+	float:left;
+	margin-top: 30px;
+	text-align: left;
+
+}
+#seller_description{
+	border: 1px ridge #242728;
+	background-color: #eeedeb;
+	font-weight: normal;
 
 }
