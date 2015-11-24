@@ -20,6 +20,12 @@ class Users extends CI_Controller{
 		$data['user_name'] = $this->session->userdata('userName');
 		$data['user_seller'] = $this->session->userdata('sellerID');
 
+		if(isset($_SESSION['sellerID']) and !empty($_SESSION['sellerID'])){
+			$seller = $this->Seller_model->getSellerInfo($_SESSION['sellerID']);
+			$data['sell_lat'] = $seller['lat'];
+			$data['sell_lng'] = $seller['lng'];
+		}
+
 		// Need to retrieve the notification count for the specified user
 
 		$this->load->view('templates/header');
@@ -66,6 +72,7 @@ class Users extends CI_Controller{
 		// Clears the session variables
 		$this->session->set_userdata("userId","");
 		$this->session->set_userdata("userName","");
+		$this->session->set_userdata("sellerID", "");
 		echo json_encode("");
 	}
 

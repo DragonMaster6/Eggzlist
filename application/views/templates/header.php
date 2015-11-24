@@ -13,7 +13,7 @@
             type="text/javascript"></script>
 
 	</head>
-	<body onload = "load()">
+	<body>
     <input type="hidden" id="base_url" value="<?php echo base_url();?>">
     <input type="hidden" id="site_url" value="<?php echo site_url();?>">
 		<center>

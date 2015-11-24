@@ -1,40 +1,19 @@
 <?php
 /*
-<table>
-	<tr>
-		<th> Name </th>
-		<th> Phone </th>
-		<th> Email </th>
-		<th> SellerID </th>
-	</tr>
+ * Programmers: Ben Matson, Daniel Taylor, Patrick Anderson
+ * Date Created: September, 2015
+ * Purpose: This is the main page all users will see. Here they can browse eggs
+ *			view listings, and contact the seller to purchase eggs
 */
+
 ?>
 <?php
-/* Daniel and Patrick:
- * Below is a template of how data from the database can be extracted and displayed
-   Let me know when you are ready to extract data and I can provide you with the
-   proper variables to get the data
-   ==============================================================================
-*/
-
-/*
-	foreach($contacts as $person){
-		$seller = "NA";
-		if(!empty($this->Seller_model->getSellerInfo($person['sellerID']))){
-			$sellerInfo = $this->Seller_model->getSellerInfo($person['sellerID']);
-			$seller = "<a href=".site_url('seller/'.$sellerInfo['sellerID']).">Seller page </a>";
-		}
-		echo "<tr>";
-		echo "<td>".$person['fname']." ".$person['lname']."</td>";
-		echo "<td>".$person['phone']."</td>";
-		echo "<td>".$person['email']."</td>";
-		echo "<td>".$seller."</td>";
-		echo "</tr>";
+	// If the seller logged in, retrieve the lat and lng for their location
+	if(isset($sell_lat) and isset($sell_lng)){
+		echo "<input type='hidden' id='sell_lat' value='".$sell_lat."'><br>";
+		echo "<input type='hidden' id='sell_lng' value='".$sell_lng."'><br>";
 	}
-*/
 ?>
-
-
 <center>
   	<div id="error_container">
   		<?php

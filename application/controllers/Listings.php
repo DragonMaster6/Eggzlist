@@ -67,6 +67,7 @@ class Listings extends CI_Controller{
 	public function show(){
 		$sID = $_SESSION['sellerID'];
 		$data['listing'] = $this->Listing_model->getSellerListing($sID);
+		$data['location'] = $this->Seller_model->getLocation($sID);
 
 		$this->load->view("templates/header");
 
@@ -77,6 +78,7 @@ class Listings extends CI_Controller{
 		else {
 			$this->load->view("listings/show", $data);				
 		}
+		
 		$this->load->view("templates/footer");
 
 	}

@@ -29,7 +29,7 @@ class Listing_model extends CI_Model{
 	public function getSellerListing($sellerID, $private=0){
 		$result = -1;
 		if(!empty($sellerID)){
-			$query = $this->db->query("select * from Listings where sellerID=".$this->db->escape($sellerID)." and private=".$this->db->escape($private)."and finish is null");
+			$query = $this->db->query("select * from Listings where sellerID=".$this->db->escape($sellerID)." and private=".$this->db->escape($private)." and finish is null");
 			if(!empty($query)){
 				$result = $query->result_array();
 			}

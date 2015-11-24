@@ -38,9 +38,4 @@
 	</div>
 	<div style="clear:both"></div> <!-- Used to help position the map -->
 </div>
-
-
-
-
-
 </center>
