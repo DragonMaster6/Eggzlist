@@ -57,7 +57,8 @@ class Users extends CI_Controller{
 			$user_data = array(
 				'userId' => $attempt,
 				'userName' => $this->User_model->getUserName($attempt),
-				'sellerID' => $this->User_model->getUserSellerID($attempt)
+				'sellerID' => $this->User_model->getUserSellerID($attempt),
+				'flash' => ""
 			);
 			$this->session->set_userdata($user_data);	
 			$data["access"]=0;

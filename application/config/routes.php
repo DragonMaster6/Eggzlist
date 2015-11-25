@@ -55,6 +55,7 @@ $route['listings/filter'] = 'listings/filter';
 $route['listings/search'] = 'listings/search';
 $route['listings/create'] = 'listings/index';	// look at the plural. Listings refers to all
 $route['listings/create'] = 'listings/create';	// singular represents a single instance
+$route['listings/edit'] = 'listings/edit';
 $route['listings/show'] = 'listings/show';
 $route['listings/showbuy/(:any)'] = 'listings/showbuy/$1';
 // Routes for the seller

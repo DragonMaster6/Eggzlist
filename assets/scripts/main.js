@@ -194,7 +194,7 @@ function displayListings(listings, map){
         " | Location: "+item['city']+
         " | Inventory: "+item['inventory']+
         " | Price/Carton: $"+item['price']+
-        "<button class='seller_btn onClick=\"gotoURL('"+SITE_DOMAIN+"/listings/showbuy/"+item['listID']+"')\">More Info</button>"+
+        "<button class='seller_btn' onClick=\"gotoURL('"+SITE_DOMAIN+"/listings/showbuy/"+item['listID']+"')\">More Info</button>"+
         "<button class='seller_btn'> Contact Seller </button>"+
         "</div><hr>";
 
@@ -217,7 +217,7 @@ if(sellLat != null && sellLng != null){
   var map = newMap([sellLng, sellLat], 11);
 }else{
   // other wise default to the Springs
-  var map = newMap(cities['colorado springs'], 11);
+  var map = newMap(cities['colorado springs'], 8);
 }
 
 // Now list all the listings and markers

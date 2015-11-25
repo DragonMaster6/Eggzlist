@@ -1,39 +1,50 @@
 <center>
+<div id='message_container' style='background-color: green'>
+	<?php
+		if(isset($flash)){
+			echo $flash;
+		}
+	?>
+</div>
+
 <div id="listing_info_container">
-	<h2><?php echo $listing['title']?> - <?php echo "$".$listing['price'] ?> (crossroad goes here)</h2>
-	<br>
+<?php
+	// Need to check to see if a seller even has an open listing
+	if(!empty($listing)){
+		echo "<h2>".$listing['title']." - $".$listing['price']." (".$listing['xroad'].") </h2>
+		<br>
 
-	<div id = "seller_info">
-		Egg Inventory: <?php echo $listing['inventory']." eggs"; ?>
+		<div id='seller_info'>
+			Egg Inventory: ".$listing['inventory']." eggs
 			<br>
-			Delivery Type: 
-			<?php 
-				if($listing['pickup'] == 0){
-					echo "Drop off";
-				}else{
-					echo "Pick up";
-				}
-			?>
-		<div id="seller_description">
-			<?php echo $listing['description']; ?><br>
-			<button>Edit Listing</button> <button>Delete Listing</button>
+
+			Delivery Type: ";
+			$type = ($listing['pickup'] == 0 ) ? "Drop Off" : "Pick up";
+			echo $type;
+		echo "<div id='seller_description'>
+				".$listing['description']."<br>
+				<button>Edit Listing</button><button>Delete Listing</button>
+			</div>
 		</div>
-	</div>
-
-	<div id = "seller_map">
-		<script type="text/javascript">
-			var map = new google.maps.Map(document.getElementById("seller_map"), {
-		    	center: new google.maps.LatLng(<?php echo $location['lat'].",".$location['lng'] ?>),
-		    	zoom: 15,
-		    	mayTypeId: 'roadmap'
-		  	});
-		  	 var marker = new google.maps.Marker({
-    			position: new google.maps.LatLng(<?php echo $location['lat'].",".$location['lng'] ?>),
-			    map: map
-			  });
-		</script>
-
-	</div>
-	<div style="clear:both"></div> <!-- Used to help position the map -->
+		<div id='seller_map'>
+			<script type='text/javascript'>
+				var map = new google.maps.Map(document.getElementById('seller_map'),{
+					center: new google.maps.LatLng(".$location['lat'].",".$location['lng']."),
+					zoom: 15,
+					mapTypeId: 'roadmap'
+				});
+				var marker = new google.maps.Marker({
+					position: new google.maps.LatLng(".$location['lat'].",".$location['lng']."),
+					map: map
+				});
+			</script>
+		</div>
+		<div style='clear:both'></div>";
+	}else{
+		// Since the seller doesn't have a listing posted, give them the option to create one
+		echo "Looks like you don't have any eggs listed.<br>
+			Create a new listings? <button> Create </button>";
+	}
+?>
 </div>
 </center>

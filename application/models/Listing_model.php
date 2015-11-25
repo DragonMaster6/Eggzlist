@@ -19,7 +19,8 @@ class Listing_model extends CI_Model{
 	// WARNING!: THE FOLLOWING QUERY WILL REVEAL PASSWORDS, HIGHLY CONSIDER SELECTING DESIRED ATTRIBUTES
 	public function getListingsByArea($area){
 		if(! empty($area)){
-			$query = $this->db->query("select * from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where s.city=".$this->db->escape($area)." and finish is null;");
+			$area = $this->db->escape($area);
+			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where s.city=".$area." and finish is null");
 			$result = $query->result_array();
 			return $result;
 		}
@@ -29,20 +30,24 @@ class Listing_model extends CI_Model{
 	public function getSellerListing($sellerID, $private=0){
 		$result = -1;
 		if(!empty($sellerID)){
-			$query = $this->db->query("select * from Listings where sellerID=".$this->db->escape($sellerID)." and private=".$this->db->escape($private)." and finish is null");
+			$query = $this->db->query("select l.title, l.description, l.price, l.inventory, l.listID, l.sellerID, l.price, l.pickup, l.status, l.finish, l.rating, l.private, s.xroad from Listings l join Sellers s on l.sellerID = s.sellerID where l.sellerID=".$this->db->escape($sellerID)." and l.private=".$this->db->escape($private)." and l.finish is null");
 			if(!empty($query)){
 				$result = $query->result_array();
 			}
 		}
 
-		return $result[0];
+		if(empty($result)){
+			return null;
+		}else{
+			return $result[0];
+		}
 	}
 
 	// locate an individual listing by its ID
 	public function getListing($lID){
 		$result = -1;
 		if(!empty($lID)){
-			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null and listID=".$this->db->escape($lID));
+			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null and listID=".$this->db->escape($lID));
 			if(!empty($query)){
 				$result = $query->result_array();
 			}
@@ -53,7 +58,7 @@ class Listing_model extends CI_Model{
 
 	// Based upon the filters given, search for listings matching this criteria
 	public function getFilteredListings($filters){
-		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, l.price, l.inventory  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null");
+		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null");
 		$listResult = $query->result_array();
 
 		$result = $this->filter($listResult, $filters['breeds'], "breeds");
@@ -63,7 +68,25 @@ class Listing_model extends CI_Model{
 		return $result;
 	}
 
+
 // UPDATE methods
+	// Given a set of parameters, update an entry in the database
+	public function updateListing($values){
+		$title = $this->db->escape($values['title']);
+		$description = $this->db->escape($values['description']);
+		$pickup = $this->db->escape($values['pickup']);
+		$inventory = $this->db->escape($values['inventory']);
+		$price = $this->db->escape($values['price']);
+
+		$query = $this->db->query("update Listings set title=".$title.
+									", description=".$description.
+									", pickup=".$pickup.
+									", price=".$price.
+									", inventory=".$inventory.
+									" where listID=".$values['lID']);
+		return $query;
+
+	}
 
 
 // DELETE methods
