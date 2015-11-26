@@ -12,6 +12,16 @@ class Users extends CI_Controller{
 		$this->load->library('session');
 	}
 
+
+
+// CREATE methods
+	public function create($page='create'){
+		// Extract the form the was sent through the post
+
+	}
+
+
+// READ methods
 	public function index($page='home'){
 		$this->load->helper('form');
 
@@ -36,12 +46,6 @@ class Users extends CI_Controller{
 	public function about(){
 		$this->load->view('templates/header');
 		$this->load->view('users/about');
-		$this->load->view('templates/footer');
-	}
-
-	public function create($page='create'){
-		$this->load->view('templates/header');
-		$this->load->view('users/create');
 		$this->load->view('templates/footer');
 	}
 
@@ -80,11 +84,19 @@ class Users extends CI_Controller{
 
 	/*********** Create a new user page **************/
 	public function signup(){
-
+		
 		// Render the page
 		$this->load->view("templates/header");
 		$this->load->view("users/signup");
 		$this->load->view("templates/footer");
 	}
+
+
+
+	// UPDATE methods
+
+
+
+	// DELETE methods
 
 }

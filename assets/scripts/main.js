@@ -101,6 +101,13 @@ $(document).ready(function(){
   });
 
 
+// User wants to contact the seller so drop down the menu
+$(".contact_btn").on("click", function(){
+  alert("Hello world");
+  $(this).parent().children(".contact_seller_container").css("background-color","red");
+});
+
+
 
 // When the user changes a filter option
   $(":checkbox, :radio, .pRange").on("change",function(){
@@ -170,7 +177,6 @@ $(document).ready(function(){
   });
 
 
-
 // Generate a new listings set
 function displayListings(listings, map){
   var htmlOut = "";
@@ -195,8 +201,17 @@ function displayListings(listings, map){
         " | Inventory: "+item['inventory']+
         " | Price/Carton: $"+item['price']+
         "<button class='seller_btn' onClick=\"gotoURL('"+SITE_DOMAIN+"/listings/showbuy/"+item['listID']+"')\">More Info</button>"+
-        "<button class='seller_btn'> Contact Seller </button>"+
-        "</div><hr>";
+        "<button class='contact_btn seller_btn' onclick=\"$(this).parent().children('.contact_seller_container').css('display','block')\"> Contact Seller </button>"+
+        "<div class='contact_seller_container'>"+
+          "<h4> Message Seller </h4>"+
+          "<form action='waitlists/create' method='post'>"+
+          "Subject: <input type='text' name='contact_subject' id='contact_subject'><br>"+
+          "Number of Eggs: <input type='text' size='2' name='numEggs'><br>"+
+          "Message: <br><textarea name='contact_message' id='contact_message' rows='10' cols='30'></textarea><br>"+
+          "<input type='submit' value='Send'></input>"+
+          "<button type='button' name='cancel_btn' onclick=\"$(this).parent().parent().parent().children('.contact_seller_container').css('display','none')\">Cancel</button></div>"+
+        "</form><div class='clear:both'></div>"+
+        "</div><div style='clear:both'></div><hr>";
 
       // Place markers upon the map now
       if($.inArray(item['userID'],placedMarkers) == -1){

@@ -12,11 +12,39 @@ class Listing_model extends CI_Model{
 
 
 // CREATE methods
+	// the seller wants to create a new listing
+	public function createListing($values){
+		date_default_timezone_get("America/Denver");
+		// Escape all values passed to the function
+		$sID = $values['sellerID'];
+		$title = $this->db->escape($values['title']);
+		$description = $this->db->escape($values['description']);
+		$pickup = $this->db->escape($values['pickup']);
+		$price = $this->db->escape($values['price']);
+		$inventory = $this->db->escape($values['inventory']);
+		$private = $this->db->escape($values['private']);
+
+		// Perform the insertion now
+		$query = $this->db->query("insert into Listings (sellerID,title,description,pickup,
+									price,status,start,rating,inventory,private) values(
+									".$sID.",
+									".$title.",
+									".$description.",
+									".$pickup.",
+									".$price.",
+									0, NOW(), 0,
+									".$inventory.",
+									".$private.");");
+
+		$result = $this->db->query("last_insert_id();");
+
+		return $result->result_array()[0]['LAST_INSERT_ID'];
+
+	}
 
 
 // READ methods
 	// Functions to access different aspects of the listings table
-	// WARNING!: THE FOLLOWING QUERY WILL REVEAL PASSWORDS, HIGHLY CONSIDER SELECTING DESIRED ATTRIBUTES
 	public function getListingsByArea($area){
 		if(! empty($area)){
 			$area = $this->db->escape($area);
