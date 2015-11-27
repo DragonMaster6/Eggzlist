@@ -10,9 +10,11 @@
 <?php
 	// If the seller logged in, retrieve the lat and lng for their location
 	if(isset($sell_lat) and isset($sell_lng)){
-		echo "<input type='hidden' id='sell_lat' value='".$sell_lat."'><br>";
-		echo "<input type='hidden' id='sell_lng' value='".$sell_lng."'><br>";
+		echo "<input type='hidden' id='sell_lat' value='".$sell_lat."'>";
+		echo "<input type='hidden' id='sell_lng' value='".$sell_lng."'>";
 	}
+	// Use a hidden tag to get the current user's ID
+	echo "<input type='hidden' id='user_ID' value='".$user."'>";
 ?>
 <center>
   	<div id="error_container">

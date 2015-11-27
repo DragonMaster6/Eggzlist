@@ -1,7 +1,7 @@
 /* Programmers: Ben Matson, Patrick, Daniel
  * Date Created: November 1, 2015
  * Purpose: This will contain the User interaction functions for the eggzlist site such as
- *			Button clicks, AJAX calls, etc
+ *			Button clicks, AJAX calls, Google Map handling etc
 */
 
 // This is the domain of the website passed by CodeIgniter
@@ -101,16 +101,8 @@ $(document).ready(function(){
   });
 
 
-// User wants to contact the seller so drop down the menu
-$(".contact_btn").on("click", function(){
-  alert("Hello world");
-  $(this).parent().children(".contact_seller_container").css("background-color","red");
-});
-
-
-
 // When the user changes a filter option
-  $(":checkbox, :radio, .pRange").on("change",function(){
+  $(":checkbox, .eggrate_filter:radio, .pRange").on("change",function(){
     var breeds = "";
     var feed = "";
     var price = "";
@@ -205,6 +197,7 @@ function displayListings(listings, map){
         "<div class='contact_seller_container'>"+
           "<h4> Message Seller </h4>"+
           "<form action='waitlists/create' method='post'>"+
+          "<input type='hidden' name='list_ID' value='"+item['listID']+"'>"+
           "Subject: <input type='text' name='contact_subject' id='contact_subject'><br>"+
           "Number of Eggs: <input type='text' size='2' name='numEggs'><br>"+
           "Message: <br><textarea name='contact_message' id='contact_message' rows='10' cols='30'></textarea><br>"+
