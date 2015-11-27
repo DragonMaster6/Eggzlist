@@ -164,9 +164,17 @@ td{
 /******************* Sign Up Styling *****************/
 #signup_container{
 	background-image: url("../pics/notebookpaper.png");
+	width: 25%;
+	margin: 0 auto;
 }
 
 #seller_content{
 	/*display: hidden;*/
-	
+	/*font-family: Courier;*/
+	font-weight: normal;
+	text-align: center;
+	/*position: relative;*/
+	/*border: 1px solid black;*/
+	/*margin-bottom: 10px;*/
+	padding: 15px;
 }
