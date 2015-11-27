@@ -7,7 +7,7 @@ body{
 	background-size: cover;
 }
 
-button{
+input[type=submit], button{
 	border: 1px ridge #d8a555;
 	background-color: #942b35; /*#F5F6CE;*/
 	padding: 15px;
@@ -82,8 +82,8 @@ td{
 	box-shadow: -3px 3px 1px #333333;
 }
 #item_container{
-	background-color: #eeedeb; /*#d40d0d;*/
-	display: inline;
+	/*background-color: #eeedeb; /*#d40d0d;*/
+	display: block;
 }
 
 .item{
@@ -102,6 +102,15 @@ td{
 }
 .seller_btn{
 	float: right;
+}
+.contact_seller_container{
+	background-image: url("../pics/notebookpaper.png");
+	position: absolute;
+	display: none;
+	left: 40%;
+	border: 1px solid black;
+	padding: 5px 15px;
+	text-align: left;
 }
 
 /************* Filter Box Styles *************/

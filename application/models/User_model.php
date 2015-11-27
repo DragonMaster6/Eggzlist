@@ -5,6 +5,37 @@ class User_model extends CI_Model{
 		$this->load->database();
 	}
 
+
+// CREATE methods
+	public function userSignup($values){
+		// Escape all the values passed to function
+		$sID = $this->db->escape($values['sellerID']);
+		$fname = $this->db->escape($values['fname']);
+		$lname = $this->db->escape($values['lname']);
+		$dname = $this->db->escape($values['dname']);
+		$pass = $this->db->escape($values['pass']);
+		$email = $this->db->escape($values['email']);
+		$phone = $this->db->escape($values['phone']);
+
+		// perform the insert
+		$query = $this->db->query("insert into Users (sellerID,fname,lname,dname,
+									pass,email,phone) values(
+									".$sID.",
+									".$fname.",
+									".$lname.",
+									".$dname.",
+									".$pass.",
+									".$email.",
+									".$phone.");");
+
+		// Retrieve the 
+		$result = $this->db->query("select LAST_INSERT_ID();");
+
+		return $result->result_array()[0]['LAST_INSERT_ID()'];
+	}
+
+
+// READ methods
 	// Retrieve all the users that are in the system
 	public function getUsers($slug = false){
 		if($slug === false){
@@ -48,4 +79,13 @@ class User_model extends CI_Model{
 		}
 		return $result;
 	}
+
+
+
+// UPDATE methods
+
+
+// DELETE methods
+
+
 }
