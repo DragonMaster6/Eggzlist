@@ -50,6 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+// Routes for Waitlists
+$route['waitlists/create'] = 'waitlists/create';
+
 // Routes for Listings
 $route['listings/filter'] = 'listings/filter';
 $route['listings/search'] = 'listings/search';
@@ -64,6 +67,7 @@ $route['seller/(:any)'] = 'sellers/show/$1';
 // Routes for the main page/user
 $route['users/signup'] = 'users/signup';
 $route['users/about'] = 'users/about';
+$route['users/index'] = 'users/index';
 $route['default_controller'] = 'users/index';
 $route['(:any)'] = 'users/index/$1';
 

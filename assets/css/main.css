@@ -58,6 +58,10 @@ td{
 
 }
 
+#message_container{
+	background-color: #ecedd5;
+	font-size: 150%;
+}
 #error_container{
 	background-color: #942b35;
 	width: 65%;

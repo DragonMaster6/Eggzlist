@@ -67,6 +67,10 @@ class Listings extends CI_Controller{
 		$data['flash'] = $this->session->userdata('flash');
 		unset($_SESSION['flash']);
 
+		$this->load->model("Waitlists_model");
+
+		$data['flash'] = $this->Waitlists_model->getStatus(4, 1);
+
 		$sID = $_SESSION['sellerID'];
 		$data['listing'] = $this->Listing_model->getSellerListing($sID);
 		$data['location'] = $this->Seller_model->getLocation($sID);

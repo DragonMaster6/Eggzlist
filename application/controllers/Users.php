@@ -7,7 +7,9 @@ class Users extends CI_Controller{
 		$this->load->model('User_model');
 		$this->load->model('Seller_model');
 		$this->load->model('Listing_model');
+
 		//$this->load->model('Notification_model');
+		$this->load->helper('form');
 		$this->load->helper('url_helper');
 		$this->load->library('session');
 	}
@@ -23,7 +25,8 @@ class Users extends CI_Controller{
 
 // READ methods
 	public function index($page='home'){
-		$this->load->helper('form');
+		$data['flash'] = $this->session->userdata('flash');
+		unset($_SESSION['flash']);
 
 		// retrieve any stored user information from the session
 		$data['user'] = $this->session->userdata('userId');

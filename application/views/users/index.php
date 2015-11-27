@@ -17,9 +17,9 @@
 	echo "<input type='hidden' id='user_ID' value='".$user."'>";
 ?>
 <center>
-  	<div id="error_container">
+  	<div id="message_container">
   		<?php
-  			
+  			echo $flash;	
   		?>
   	</div>
   	<div id="menu_container">
