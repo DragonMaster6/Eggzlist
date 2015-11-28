@@ -36,7 +36,7 @@
 						}else{
 							echo "You don't have any open listings";
 						}
-					  "</div>";
+					  echo "</div>";
 			}
 		?>
 	</div>
