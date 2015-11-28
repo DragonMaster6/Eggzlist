@@ -50,10 +50,10 @@
 				echo "<div class='note'>
 						<h4 style='text-align:center'>".$note['subject']."</h4><hr>
 						From: ".$this->User_model->getUserName($note['fromUserID'])."<br>
-						Requested Eggs: ".$note['eggs']."
+						Requested Eggs: ".$note['eggs']." from listing: ".$listing['listID']."
 						<br> Posted: ".$note['posted']."<br><hr>
 						<b>Message: </b><br>".$note['message']."<br>
-						<button id='note_reply_btn'>Reply</button><button id='note_delete_btn'>Delete</button>
+						<button class='note_reply_btn'>Reply</button><button class='note_delete_btn' value='".$note['noteID']."''>Delete</button>
 					</div>";
 			}
 		}else{

@@ -28,5 +28,14 @@ class Notifications extends CI_Controller{
 
 
 // DELETE methods
+	// user wants to delete a specified notification
+	public function delete(){
+		$noteID = $this->input->post("id");
+
+		// finally delete the note
+		$this->Notification_model->deleteNote($noteID);
+
+		// There is not need to render a page
+	}
 
 }

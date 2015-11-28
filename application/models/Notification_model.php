@@ -52,4 +52,9 @@ class Notification_model extends CI_Model{
 
 
 // DELETE methods
+	public function deleteNote($noteID){
+		$query = $this->db->query("delete from Notifications where noteID=".$noteID);
+
+		return 1;
+	}
 }

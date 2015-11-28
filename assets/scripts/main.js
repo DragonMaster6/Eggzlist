@@ -169,6 +169,25 @@ $(document).ready(function(){
   });
 
 
+  // /**************** User Profile functionality *****************/
+  $(".note_delete_btn").on("click", function(){
+    var noteID = $(this).val();
+
+    // send the ajax request
+    $.ajax({
+      type: "post",
+      url: SITE_DOMAIN+"/notifications/delete",
+      dataType: "text",
+      data: {id: noteID}
+    })
+    .done(function(){
+      location.reload();
+    })
+    .fail(function(){alert("Deleting note didn't work");})
+  });
+
+
+
 // Generate a new listings set
 function displayListings(listings, map){
   var htmlOut = "";

@@ -50,6 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
+$route['notifications/delete'] = 'notifications/delete';
+
 // Routes for Waitlists
 $route['waitlists/create'] = 'waitlists/create';
 

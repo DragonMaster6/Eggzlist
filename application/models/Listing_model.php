@@ -48,7 +48,7 @@ class Listing_model extends CI_Model{
 	public function getListingsByArea($area){
 		if(! empty($area)){
 			$area = $this->db->escape($area);
-			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where s.city=".$area." and finish is null");
+			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where s.city=".$area." and finish is null and private=0");
 			$result = $query->result_array();
 			return $result;
 		}
@@ -75,7 +75,7 @@ class Listing_model extends CI_Model{
 	public function getListing($lID){
 		$result = -1;
 		if(!empty($lID)){
-			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null and listID=".$this->db->escape($lID));
+			$query = $this->db->query("select u.fname, u.lname, u.userID, u.email, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID, l.start, l.title, l.description, l.pickup from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null and private=0 and listID=".$this->db->escape($lID));
 			if(!empty($query)){
 				$result = $query->result_array();
 			}
@@ -86,7 +86,7 @@ class Listing_model extends CI_Model{
 
 	// Based upon the filters given, search for listings matching this criteria
 	public function getFilteredListings($filters){
-		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null");
+		$query = $this->db->query("select u.fname, u.lname, u.userID, s.sellerID, s.breeds, s.eggrate, s.feed, s.city, s.lat, s.lng, s.xroad, l.price, l.inventory, l.listID  from Users u join Sellers s on u.sellerID = s.sellerID join Listings l on s.sellerID = l.sellerID where finish is null and private=0");
 		$listResult = $query->result_array();
 
 		$result = $this->filter($listResult, $filters['breeds'], "breeds");
