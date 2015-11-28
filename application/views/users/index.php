@@ -14,7 +14,9 @@
 		echo "<input type='hidden' id='sell_lng' value='".$sell_lng."'>";
 	}
 	// Use a hidden tag to get the current user's ID
-	echo "<input type='hidden' id='user_ID' value='".$user."'>";
+	if(isset($user)){
+		echo "<input type='hidden' id='user_ID' value='".$user."'>";
+	}
 ?>
 <center>
   	<div id="message_container">
@@ -36,7 +38,7 @@
   				// the guest has logged in. Now show the proper tools
   				if(!empty($user_seller)){
   					echo "<button id='create_list_btn' onClick='gotoURL(\"".site_url("listings/show")."\")'> Your Listings </button>
-  							<button id='profile_btn'> Profile (".$notifications.")</button>
+  							<button id='profile_btn' onclick=\"gotoURL('".site_url("users/show")."')\"> Profile (".$notifications.")</button>
   							<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
   							<button id='logout_btn'> Logout </button>
   							<div id = 'welcome'> Welcome Back, ".$user_name."</div>";

@@ -174,6 +174,37 @@ td{
 
 }
 
+/******************* User Profile Styling **************/
+#profile_container{
+	background-image: url("../pics/notebookpaper.png");
+	margin: 0px;
+	overflow: auto;
+	width: 45%;
+	float:left;
+}
+
+#user_data{
+	margin: 5px;
+}
+
+#note_container{
+	background-image: url("../pics/notebookpaper.png");
+	width: 45%;
+	float: right;
+	border: 2px solid black;
+}
+#profile_listings{
+	margin: 10px;
+	border: 1px solid black;
+}
+.note{
+	padding: 7px;
+	margin: 2px;
+	border: 1px solid black;
+	background-color: #eeedeb;
+}
+
+
 /******************* Sign Up Styling *****************/
 #signup_container{
 	background-image: url("../pics/notebookpaper.png");

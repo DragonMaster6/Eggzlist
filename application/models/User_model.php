@@ -52,6 +52,7 @@ class User_model extends CI_Model{
 		return $result[0]['fname'];
 	}
 	// Retrieve a user by their seller ID
+	// (WARNING: This will pass on the password so becareful)
 	public function getUserBySellerID($sellerID){
 		$query = $this->db->query("select * from Users where sellerID=".$this->db->escape($sellerID));
 		$result = $query->result_array();
@@ -65,7 +66,21 @@ class User_model extends CI_Model{
 	}
 	// retrieve all of the user's information
 	public function getProfile($uID, $sID=null){
-		
+		// if the user is a seller include it into the report, else just get the user profile
+		if(!empty($sID)){
+			$query = $this->db->query("select u.fname, u.lname, u.dname, u.email, u.phone,
+										s.sellerID, s.numChick, s.feed, s.eggrate, s.breeds, s.street,
+										s.city, s.state, s.pcode, s.xroad, s.rating
+									   from Users u join Sellers s on u.sellerID=s.sellerID
+									   where u.userID=".$uID." and s.sellerID=".$sID);
+			return $query->result_array()[0];
+			
+		}else{
+			// the user is just a buyer so retrieve basic information
+			$query = $this->db->query("select fname, lname, dname, email, phone from Users where userID=".$uID);
+			return $query->result_array()[0];
+		}
+
 	}
 	// This will Log a user into the website based on the credentials provided
 	public function userAuth($user, $pass){

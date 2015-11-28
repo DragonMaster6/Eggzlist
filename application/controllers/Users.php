@@ -30,10 +30,12 @@ class Users extends CI_Controller{
 		unset($_SESSION['flash']);
 
 		// retrieve any stored user information from the session
-		$data['user'] = $this->session->userdata('userId');
-		$data['user_name'] = $this->session->userdata('userName');
-		$data['user_seller'] = $this->session->userdata('sellerID');
-		$data['notifications'] = $this->Notification_model->notificationCount($_SESSION['userId']);
+		if(!empty($_SESSION['userId'])){
+			$data['user'] = $this->session->userdata('userId');
+			$data['user_name'] = $this->session->userdata('userName');
+			$data['user_seller'] = $this->session->userdata('sellerID');
+			$data['notifications'] = $this->Notification_model->notificationCount($_SESSION['userId']);
+		}
 
 		if(isset($_SESSION['sellerID']) and !empty($_SESSION['sellerID'])){
 			$seller = $this->Seller_model->getSellerInfo($_SESSION['sellerID']);
@@ -56,10 +58,14 @@ class Users extends CI_Controller{
 
 	/************** Display the User's profile page ********************************/
 	public function show(){
+		// Retrieve the user data
+		$data['profile'] = $this->User_model->getProfile($_SESSION['userId'], $_SESSION['sellerID']);
+		$data['notes'] = $this->Notification_model->getNotes($_SESSION['userId']);
+		$data['listing'] = $this->Listing_model->getSellerListing($_SESSION['sellerID']);
 
 		// Render the view
 		$this->load->view('templates/header');
-		$this->load->view('users/show');
+		$this->load->view('users/show', $data);
 		$this->load->view('templates/footer');
 	}
 

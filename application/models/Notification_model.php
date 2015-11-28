@@ -37,6 +37,11 @@ class Notification_model extends CI_Model{
 	}
 
 // READ methods
+	// retrieve a user's notifications
+	public function getNotes($uID){
+		$query = $this->db->query("select * from Notifications where toUserID=".$uID);
+		return $query->result_array();
+	}
 	// Count the number of notifications the user might have
 	public function notificationCount($uID){
 		$query = $this->db->query("select COUNT(*) as cnt from Notifications where toUserID=".$this->db->escape($uID));
