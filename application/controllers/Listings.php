@@ -104,6 +104,7 @@ class Listings extends CI_Controller{
 	public function showbuy($lID){
 		//$sID = $_SESSION['sellerID'];
 		$data['listing'] = $this->Listing_model->getListing($lID);
+		$data['sellerInfo'] = $this->Seller_model->getSellerInfo($data['listing']['sellerID']);
 		$data['location'] = $this->Seller_model->getLocation($data['listing']['sellerID']);
 
 		// retrieve the inputs passed from the request

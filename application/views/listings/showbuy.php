@@ -2,10 +2,11 @@
 
 <center>
 <div id="listing_info_container">
-	<h2><?php echo $listing['title']?> - <?php echo "$".$listing['price'] ?> (crossroad goes here)</h2>
+	<h2><?php echo $listing['title']?> - <?php echo "$".$listing['price'] ?> (<?php echo $sellerInfo['xroad']; ?> <br>)</h2>
 	<br>
 
 	<div id = "seller_info">
+		<h4> Seller Info </h4>
 		Egg Inventory: <?php echo $listing['inventory']." eggs"; ?>
 			<br>
 			Delivery Type: 
@@ -16,6 +17,11 @@
 					echo "Pick up";
 				}
 			?>
+		<br>
+		Number of Chickens: <?php echo $sellerInfo['numChick']; ?> <br>
+		Feed type: <?php echo $sellerInfo['feed']; ?> <br>
+		Eggrate: <?php echo $sellerInfo['eggrate']; ?> <br>
+		Breeds: <?php echo $sellerInfo['breeds']; ?> <br>
 		<div id="seller_description">
 			<?php echo $listing['description']; ?>
 			<button id = "contact_btn">Contact Seller </button>
