@@ -7,6 +7,7 @@ class Users extends CI_Controller{
 		$this->load->model('User_model');
 		$this->load->model('Seller_model');
 		$this->load->model('Listing_model');
+		$this->load->model('Notification_model');
 
 		//$this->load->model('Notification_model');
 		$this->load->helper('form');
@@ -32,6 +33,7 @@ class Users extends CI_Controller{
 		$data['user'] = $this->session->userdata('userId');
 		$data['user_name'] = $this->session->userdata('userName');
 		$data['user_seller'] = $this->session->userdata('sellerID');
+		$data['notifications'] = $this->Notification_model->notificationCount($_SESSION['userId']);
 
 		if(isset($_SESSION['sellerID']) and !empty($_SESSION['sellerID'])){
 			$seller = $this->Seller_model->getSellerInfo($_SESSION['sellerID']);
@@ -49,6 +51,15 @@ class Users extends CI_Controller{
 	public function about(){
 		$this->load->view('templates/header');
 		$this->load->view('users/about');
+		$this->load->view('templates/footer');
+	}
+
+	/************** Display the User's profile page ********************************/
+	public function show(){
+
+		// Render the view
+		$this->load->view('templates/header');
+		$this->load->view('users/show');
 		$this->load->view('templates/footer');
 	}
 

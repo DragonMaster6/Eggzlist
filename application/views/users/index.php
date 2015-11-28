@@ -34,15 +34,15 @@
 				<button onClick=\"gotoURL('".site_url('users/signup')."')\">Sign Up</button></div>";
   			}else{
   				// the guest has logged in. Now show the proper tools
-  				if($user_seller != null){
+  				if(!empty($user_seller)){
   					echo "<button id='create_list_btn' onClick='gotoURL(\"".site_url("listings/show")."\")'> Your Listings </button>
-  							<button id='profile_btn'> Profile (Notification Count)</button>
+  							<button id='profile_btn'> Profile (".$notifications.")</button>
   							<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
   							<button id='logout_btn'> Logout </button>
   							<div id = 'welcome'> Welcome Back, ".$user_name."</div>";
   				}else{
   					// user is a normal buyer
-  					echo "<button id='profile_btn'> Profile (Notification Count)</button>
+  					echo "<button id='profile_btn'> Profile (".$notifications.")</button>
   							<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
   							<button id='logout_btn'> Logout </button>
   							<div id = 'welcome'> Welcome Back, ".$user_name."</div>";

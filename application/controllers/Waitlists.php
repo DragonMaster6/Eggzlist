@@ -12,7 +12,10 @@ class Waitlists extends CI_Controller{
 		parent::__construct();
 
 		// load models here
+		$this->load->model("User_model");
+		$this->load->model("Listing_model");
 		$this->load->model("Waitlists_model");
+		$this->load->model("Notification_model");
 
 		// load any other helper classes
 		$this->load->helper("url_helper");
@@ -29,15 +32,26 @@ class Waitlists extends CI_Controller{
 		$note['numEgg'] = $this->input->post("numEggs");
 		$note['message'] = $this->input->post("contact_message");
 		$note['uID'] = $_SESSION["userId"];
+		$note['tuID'] = $this->input->post("to_user");
 
-		// add the buyer/seller to the waiting list
-		$pos = $this->Waitlists_model->pushUser($list);
-		$_SESSION['flash'] = "You are ".$pos." on the list";
+		// This is where we would check if the current listing has any more available eggs
+		$sID = $this->User_model->getUserSellerID($note['tuID']);
+		$listing = $this->Listing_model->getSellerListing($sID);
+		if($listing['inventory'] >= $note['numEgg']){
+			// add the buyer/seller to the waiting list
+			$pos = $this->Waitlists_model->pushUser($list);
+			$_SESSION['flash'] = "You are ".$pos." on the list";
 
-		// Now send a notification to the seller about it
+			// Now send a notification to the seller about it
+			$this->Notification_model->createNotification($note, 2);
 
-		// Redirect to the index page with the message
-		redirect("users/index");
+			// Redirect to the index page with the message
+			redirect("users/index");
+		}else{
+			// The user is requesting more eggs than the listed price; display an error
+			$_SESSION['flash'] = "There aren't enough eggs! Please retry again";
+			redirect("users/index");
+		}
 	}
 
 

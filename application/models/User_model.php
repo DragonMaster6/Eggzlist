@@ -63,6 +63,10 @@ class User_model extends CI_Model{
 		$result = $query->result_array();
 		return $result[0]['sellerID'];
 	}
+	// retrieve all of the user's information
+	public function getProfile($uID, $sID=null){
+		
+	}
 	// This will Log a user into the website based on the credentials provided
 	public function userAuth($user, $pass){
 		$user = $this->db->escape($user);

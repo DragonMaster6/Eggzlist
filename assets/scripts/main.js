@@ -197,6 +197,7 @@ function displayListings(listings, map){
         "<div class='contact_seller_container'>"+
           "<h4> Message Seller </h4>"+
           "<form action='"+SITE_DOMAIN+"/waitlists/create' method='post'>"+
+          "<input type='hidden' name='to_user' value='"+item['userID']+"'>"+
           "<input type='hidden' name='list_ID' value='"+item['listID']+"'>"+
           "Subject: <input type='text' name='contact_subject' id='contact_subject'><br>"+
           "Number of Eggs: <input type='text' size='2' name='numEggs'><br>"+
