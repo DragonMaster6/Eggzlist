@@ -87,10 +87,10 @@ class Listings extends CI_Controller{
 
 	// Display the edit listing page for the seller to edit
 	public function edit(){
-		$data['flash'] = $_SESSION['flash'];
+		$data['flash'] = $this->session->userdata('flash');
 		unset($_SESSION['flash']);
 
-		$data['listing'] = $this->Listing_model->setSellerListing($_SESSION['sellerID']);
+		$data['listing'] = $this->Listing_model->getSellerListing($_SESSION['sellerID']);
 		$data['location'] = $this->Seller_model->getLocation($_SESSION['sellerID']);
 
 		// Render the edit page which is similar to the show page but with inputs

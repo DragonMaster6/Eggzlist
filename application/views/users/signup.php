@@ -10,18 +10,18 @@
 	<div id="signup_container">
 		
 		<!-- Greeting and user choice -->
-		<div id="seller_content">
+		
+		
+		<!-- Buyer signup -->
+		<div id="buyer_content">
 			<b>Create new Eggzlist.com account</b><br><br>
 			
 			<!-- Ask the user if s/he is a buyer or seller -->
+			<b>*required field</b><br>
 			<b>Are you a...</b><br>
-			<input type="radio" name="user_type" checked>Buyer of eggs<br>
-			<input type="radio" name="user_type">Seller of eggs<br>
-		</div>
-		
-		<!-- Buyer signup -->
-		<div id="seller_content">
-			
+			<input type="radio" name="user_type" onchange="$('#seller_content').css('display','none')" checked>Buyer of eggs<br>
+			<input type="radio" name="user_type" onchange="$('#seller_content').css('display','block')">Seller of eggs<br>
+
 			<!-- Ask for the user's first name -->
 			<hr>
 			<b>First Name*</b><br>
@@ -52,16 +52,12 @@
 			<b>Password*</b><br>
 			<input type="text" name="pass"></input><br>
 			
-			<!-- Required fields text-->
-			<hr>
-			<b>*required field</b><br><br>
 			
 			<!-- Sign up button -->
-			<input type="submit" value="Sign up!"></input>
-		</div>
-		
-		<!-- Seller signup -->
-		<div id="seller_content">
+			
+			<!-- Seller signup -->
+			<div id="seller_content">
+			<h3> Seller information </h3>
 		
 			<!-- Ask for the user's first name -->
 			<!--
@@ -149,10 +145,9 @@
 			<hr>
 			<b>Enter perfered cross roads location*</b><br>
 			<input type="text" name="xroad"></input><br>
-			
-			<!-- Required fields text -->
-			<hr>
-			<b>*required field</b><br><br>
+		</div>
+		
+		
 			
 			<!-- Sign up button -->
 			<input type="submit" value="Sign up!"></input>

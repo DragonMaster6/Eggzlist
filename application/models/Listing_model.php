@@ -58,7 +58,7 @@ class Listing_model extends CI_Model{
 	public function getSellerListing($sellerID, $private=0){
 		$result = -1;
 		if(!empty($sellerID)){
-			$query = $this->db->query("select l.title, l.description, l.price, l.inventory, l.listID, l.sellerID, l.price, l.pickup, l.status, l.finish, l.rating, l.private, s.xroad from Listings l join Sellers s on l.sellerID = s.sellerID where l.sellerID=".$this->db->escape($sellerID)." and l.private=".$this->db->escape($private)." and l.finish is null");
+			$query = $this->db->query("select l.title, l.description, l.price, l.inventory, l.listID, l.sellerID, l.price, l.pickup, l.status, l.finish, l.rating, l.private, s.street, s.city, s.pcode, s.state, s.xroad from Listings l join Sellers s on l.sellerID = s.sellerID where l.sellerID=".$this->db->escape($sellerID)." and l.private=".$this->db->escape($private)." and l.finish is null");
 			if(!empty($query)){
 				$result = $query->result_array();
 			}

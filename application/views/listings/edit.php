@@ -15,7 +15,7 @@
 	?>
 </div>
 <div id='listing_info_container'>
-	<h2><?php echo $listing['title']?> - <?php echo '$'.$listing['price'] ?> (crossroad goes here)</h2>
+	<h2><?php echo $listing['title']?> - <?php echo '$'.$listing['price'] ?> (<?php echo $listing['xroad'] ?>)</h2>
 	<br>
 
 	<div id = 'seller_info'>
@@ -63,10 +63,6 @@
 
 Listing Title: <input type="text" name="title" value=<?php echo $listing['title'] ?>>;
 
-Closest Crossroads <input type="text" name="xroad" value=<?php echo $listing['xroad'] ?>>;
-
-Street Address: <input type="text" name="address" value=<?php echo $listing['address'] ?>>;
-
 Number of Eggs: <input type="text" name="eggs" value=<?php echo $listing['inventory'] ?>>;
 
 Price: <input type="text" name="price" value=<?php echo $listing['price'] ?>>;
@@ -81,10 +77,10 @@ Description: <input type="text" name="description" value=<?php echo $listing['de
 * for a button that I'm using from an online tutorial.
 */
 ?>
-
+<!--
 Breed:
 <input type="radio" name="gender"
-<?php if (isset($gender) && $gender=="female") echo "checked";?>
+<?php if (in_array('leghorn', $listing['breed'])) echo "checked";?>
 value="female">Leghorn
 
 <input type="radio" name="gender"
@@ -117,7 +113,7 @@ value="female">Corn Feed
 value="female">Pikes Beak
 
 <br>
-
+-->
 <button>Save Changes</button> <button>Cancel Changes</button> 
 
 </center>

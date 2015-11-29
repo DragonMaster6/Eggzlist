@@ -23,7 +23,7 @@
 			echo $type;
 		echo "<div id='seller_description'>
 				".$listing['description']."<br>
-				<button>Edit Listing</button><button>Delete Listing</button>
+				<button onclick='gotoURL(\"".site_url("listings/edit")."\")'>Edit Listing</button><button>Delete Listing</button>
 			</div>
 		</div>
 		<div id='seller_map'>
