@@ -51,4 +51,73 @@
 	</div>
 	<div style='clear:both'></div> <!-- Used to help position the map -->
 </div>
+
+
+<?php
+/*
+*basic entry fields, ben change these please
+* from dan
+*/
+?>
+
+
+Listing Title: <input type="text" name="title" value=<?php echo $listing['title'] ?>>;
+
+Closest Crossroads <input type="text" name="xroad" value=<?php echo $listing['xroad'] ?>>;
+
+Street Address: <input type="text" name="address" value=<?php echo $listing['address'] ?>>;
+
+Number of Eggs: <input type="text" name="eggs" value=<?php echo $listing['inventory'] ?>>;
+
+Price: <input type="text" name="price" value=<?php echo $listing['price'] ?>>;
+
+Description: <input type="text" name="description" value=<?php echo $listing['description'] ?>>)
+
+<br>
+
+<?php
+/*
+* note for ben, these buttons need to have the proper data fields changed.  Right now it contains the basic code
+* for a button that I'm using from an online tutorial.
+*/
+?>
+
+Breed:
+<input type="radio" name="gender"
+<?php if (isset($gender) && $gender=="female") echo "checked";?>
+value="female">Leghorn
+
+<input type="radio" name="gender"
+<?php if (isset($gender) && $gender=="female") echo "checked";?>
+value="female">Maran
+
+<input type="radio" name="gender"
+<?php if (isset($gender) && $gender=="female") echo "checked";?>
+value="female">Silkie
+
+<input type="radio" name="gender"
+<?php if (isset($gender) && $gender=="female") echo "checked";?>
+value="female">Other
+
+<br>
+
+Feed:
+
+
+<input type="radio" name="gender"
+<?php if (isset($gender) && $gender=="female") echo "checked";?>
+value="female">Organic
+
+<input type="radio" name="gender"
+<?php if (isset($gender) && $gender=="female") echo "checked";?>
+value="female">Corn Feed
+
+<input type="radio" name="gender"
+<?php if (isset($gender) && $gender=="female") echo "checked";?>
+value="female">Pikes Beak
+
+<br>
+
+<button>Save Changes</button> <button>Cancel Changes</button> 
+
 </center>
