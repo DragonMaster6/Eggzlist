@@ -31,8 +31,29 @@
 			?>
 		<div id='seller_description'>
 			<?php echo $listing['description']; ?><br>
-			<button>Edit Listing</button> <button>Delete Listing</button>
+			<br>
+			<br>
+
+
+
+
 		</div>
+		<br>
+		
+		Edit Listing:
+		<br>
+		<br>
+			Listing Title: <input type="text" name="title" value="<?php echo $listing['title'] ?>">
+			<br>
+			Number of Eggs: <input type="text" name="eggs" value=<?php echo $listing['inventory'] ?>>
+			<br>
+			Price: <input type="text" name="price" value=<?php echo $listing['price'] ?>>
+			<br>
+			Description: <br>
+			 <textarea type="text" name="description" cols = '60' rows = '15'><?php echo $listing['description'] ?></textarea>
+			<br>
+			<br>
+			<button>Save Changes</button> <button>Cancel Changes</button> 
 	</div>
 
 	<div id = 'seller_map'>
@@ -61,13 +82,6 @@
 ?>
 
 
-Listing Title: <input type="text" name="title" value=<?php echo $listing['title'] ?>>;
-
-Number of Eggs: <input type="text" name="eggs" value=<?php echo $listing['inventory'] ?>>;
-
-Price: <input type="text" name="price" value=<?php echo $listing['price'] ?>>;
-
-Description: <input type="text" name="description" value=<?php echo $listing['description'] ?>>)
 
 <br>
 
@@ -114,6 +128,6 @@ value="female">Pikes Beak
 
 <br>
 -->
-<button>Save Changes</button> <button>Cancel Changes</button> 
+
 
 </center>
