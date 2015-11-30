@@ -6,7 +6,7 @@
 */
 ?>
 
-<form action="users/create" method="post">
+<form action=<?php echo site_url("users/create") ?> method="post">
 	<div id="signup_container">
 		
 		<!-- Greeting and user choice -->
@@ -19,8 +19,8 @@
 			<!-- Ask the user if s/he is a buyer or seller -->
 			<b>*required field</b><br>
 			<b>Are you a...</b><br>
-			<input type="radio" name="user_type" onchange="$('#seller_content').css('display','none')" checked>Buyer of eggs<br>
-			<input type="radio" name="user_type" onchange="$('#seller_content').css('display','block')">Seller of eggs<br>
+			<input type="radio" name="user_type" value="buyer" onchange="$('#seller_content').css('display','none')" checked>Buyer of eggs<br>
+			<input type="radio" name="user_type" value="seller" onchange="$('#seller_content').css('display','block')">Seller of eggs<br>
 
 			<!-- Ask for the user's first name -->
 			<hr>
@@ -50,7 +50,7 @@
 			<!-- Ask for the user's password -->
 			<hr>
 			<b>Password*</b><br>
-			<input type="text" name="pass"></input><br>
+			<input type="password" name="pass"></input><br>
 			
 			
 			<!-- Sign up button -->

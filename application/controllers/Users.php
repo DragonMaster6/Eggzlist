@@ -20,7 +20,49 @@ class Users extends CI_Controller{
 // CREATE methods
 	public function create($page='create'){
 		// Extract the form the was sent through the post
+		$user['fname'] = $this->input->post('fname');
+		$user['lname'] = $this->input->post('lname');
+		$user['dname'] = $this->input->post('dname');
+		$user['email'] = $this->input->post('email');
+		$user['phone'] = $this->input->post('phone');
+		$user['pass'] = $this->input->post('pass');
+		$user['type'] = $this->input->post('user_type');
 
+		// determine if the user just wants to be a buyer or a seller
+		if($user['type'] == 'seller'){
+			// extract the seller input fields
+			$seller['numChick'] = $this->input->post('numChick');
+			$seller['feed'] = $this->input->post('feed');
+			$seller['eggrate'] = $this->input->post('eggrate');
+			$seller['breeds'] = $this->input->post('breeds');
+			$seller['street'] = $this->input->post('street');
+			$seller['city'] = $this->input->post('city');
+			$seller['state'] = $this->input->post('state');
+			$seller['pcode'] = $this->input->post('pcode');
+			$seller['xroad'] = $this->input->post('xroad');
+			/** (NOTE: since we ran out of time we are leaving the lat and lng as Colorado Springs) **/
+			$seller['lat'] = 38.833358;
+			$seller['lng'] = -104.820851;
+
+			// finally create the seller profile
+			$user['sellerID'] = $this->Seller_model->sellerSignup($seller);
+
+		}else{
+			// Just a buyers so set the sellerId to null
+			$user['sellerID'] = null;
+		}
+
+
+		// Create the user now
+		$this->User_model->userSignup($user);
+
+		// Redirect to the main page
+		$this->session->set_userdata("flash","Successfully added. Please Login to continue");
+		redirect("users/index");
+/*		$this->load->view("templates/header");
+		$this->load->view("users/index");
+		$this->load->view("templates/footer");
+*/
 	}
 
 

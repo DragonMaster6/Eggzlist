@@ -70,6 +70,7 @@ $route['seller/(:any)'] = 'sellers/show/$1';
 $route['users/show'] = 'users/show';
 $route['users/signup'] = 'users/signup';
 $route['users/about'] = 'users/about';
+$route['users/create'] = 'users/create';
 $route['users/index'] = 'users/index';
 $route['default_controller'] = 'users/index';
 $route['(:any)'] = 'users/index/$1';

@@ -42,10 +42,14 @@ class Seller_model extends CI_Model{
 									".$lat.",
 									".$lng.");");
 
-		// Retrieve the 
-		$result = $this->db->query("select LAST_INSERT_ID();");
 
-		return $result->result_array()[0]['LAST_INSERT_ID()'];
+		if(!empty($this->db->insert_id())){
+			$result = $this->db->insert_id();
+		}else{
+			$result = null;
+		}
+
+		return $result;
 	}
 
 // READ methods

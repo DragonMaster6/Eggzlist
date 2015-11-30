@@ -21,7 +21,7 @@
 <center>
   	<div id="message_container">
   		<?php
-  			echo $flash;	
+  			echo $flash;
   		?>
   	</div>
   	<div id="menu_container">
@@ -44,7 +44,7 @@
   							<div id = 'welcome'> Welcome Back, ".$user_name."</div>";
   				}else{
   					// user is a normal buyer
-  					echo "<button id='profile_btn'> Profile (".$notifications.")</button>
+  					echo "<button id='profile_btn' onclick=\"gotoURL('".site_url("users/show")."')\"> Profile (".$notifications.")</button>
   							<button id='about_btn' onClick=\"gotoURL('".site_url('users/about')."')\"> About us </button>
   							<button id='logout_btn'> Logout </button>
   							<div id = 'welcome'> Welcome Back, ".$user_name."</div>";
