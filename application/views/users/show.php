@@ -19,15 +19,19 @@
 
 			if(isset($profile['sellerID'])){
 				echo "<br><b><h3> Seller info </h3></b>".
-					"Number of Chickens: ".$profile['numChick']."<br>
-					 Feed type: ".$profile['feed']."<br>
-					 Average Eggrate: ".$profile['eggrate']."<br>
-					 Chicken breeds: ".$profile['breeds']."<br>
-					 Street: ".$profile['street']."<br>
-					 City: ".$profile['city']."<br>
-					 State: ".$profile['state']."<br>
-					 Postal Code: ".$profile['pcode']."<br>
-					 Cross road: ".$profile['xroad']."<br>";
+					"<table>".
+					"<tr><td>Number of Chickens: </td><td>".$profile['numChick']."</td></tr>
+					 <tr><td>Feed type: </td><td>".$profile['feed']."</td></tr>
+					 <tr><td>Average Eggrate: </td><td>".$profile['eggrate']."</td></tr>
+					 <tr><td>Chicken breeds: </td><td>".$profile['breeds']."</td></tr>
+					 <tr><td>Street: </td><td>".$profile['street']."</td></tr>
+					 <tr><td>City: </td><td>".$profile['city']."</td></tr>
+					 <tr><td>State: </td><td>".$profile['state']."</td></tr>
+					 <tr><td>Postal Code: </td><td>".$profile['pcode']."</td></tr>
+					 <tr><td>Cross road: </td><td>".$profile['xroad']."</td></tr>
+					 </table><br>
+
+					 <button> Edit Profile </button>";
 
 				echo "<div id='profile_listings'>
 						<h4 style='text-align:center'>Current Listings</h4><hr>";

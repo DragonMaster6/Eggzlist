@@ -36,9 +36,9 @@ class Listing_model extends CI_Model{
 									".$inventory.",
 									".$private.");");
 
-		$result = $this->db->query("last_insert_id();");
+		$result = $this->db->insert_id();
 
-		return $result->result_array()[0]['LAST_INSERT_ID'];
+		return $result;
 
 	}
 
@@ -118,6 +118,10 @@ class Listing_model extends CI_Model{
 
 
 // DELETE methods
+	// The seller no longer wants a listing displayed
+	public function removeListing($lID){
+		$query = $this->db->query("delete from Listings where listID=".$lID);
+	}
 
 
 // MISC methods

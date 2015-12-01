@@ -58,10 +58,11 @@ $route['waitlists/create'] = 'waitlists/create';
 // Routes for Listings
 $route['listings/filter'] = 'listings/filter';
 $route['listings/search'] = 'listings/search';
-$route['listings/create'] = 'listings/index';	// look at the plural. Listings refers to all
-$route['listings/create'] = 'listings/create';	// singular represents a single instance
+//$route['listings/create'] = 'listings/index';	// look at the plural. Listings refers to all
+$route['listings/create'] = 'listings/create';
 $route['listings/edit'] = 'listings/edit';
 $route['listings/show'] = 'listings/show';
+$route['listings/delete/(:any)'] = 'listings/delete/$1';
 $route['listings/showbuy/(:any)'] = 'listings/showbuy/$1';
 // Routes for the seller
 $route['seller/(:any)'] = 'sellers/show/$1';

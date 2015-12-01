@@ -2,7 +2,7 @@
 
 <center>
 <div id="listing_info_container">
-	<h2><?php echo $listing['title']?> - <?php echo "$".$listing['price'] ?> (<?php echo $sellerInfo['xroad']; ?> <br>)</h2>
+	<h2><?php echo $listing['title']?> - <?php echo "$".$listing['price'] ?> (<?php echo $sellerInfo['xroad']; ?>)</h2>
 	<br>
 
 	<div id = "seller_info">
@@ -24,6 +24,7 @@
 		Breeds: <?php echo $sellerInfo['breeds']; ?> <br>
 		<div id="seller_description">
 			<?php echo $listing['description']; ?>
+			<br>
 			<button id = "contact_btn">Contact Seller </button>
 		</div>
 	</div>

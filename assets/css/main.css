@@ -81,9 +81,10 @@ td{
     margin-bottom: 15px;
 	color: #242728; /*#F5F6CE;*/
 	border-bottom: 2px ridge #242728;
-	padding: 1px 0px;
+	padding: 3px 0px;
 	background-color: #ecedd5;
 	box-shadow: -3px 3px 1px #333333;
+	overflow: hidden;
 }
 #item_container{
 	/*background-color: #eeedeb; /*#d40d0d;*/
@@ -165,12 +166,15 @@ td{
 	float:left;
 	margin-top: 30px;
 	text-align: left;
+	margin-left: 10px;
 
 }
 #seller_description{
 	border: 1px ridge #242728;
 	background-color: #eeedeb;
 	font-weight: normal;
+	width: 400px;
+	padding: 5px;
 
 }
 

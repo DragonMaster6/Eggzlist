@@ -18,6 +18,22 @@ class Listings extends CI_Controller{
 
 // Creation functions
 	public function create(){
+		// extract the data submitted
+		$listing['title'] = $this->input->post('title');
+		$listing['description'] = $this->input->post('description');
+		$listing['price'] = $this->input->post('price');
+		$listing['pickup'] = $this->input->post('pickup_type');
+		$listing['inventory'] = $this->input->post('inventory');
+		$listing['private'] = 0;
+		$listing['sellerID'] = $_SESSION['sellerID'];
+
+		// Do data validation here
+
+		// Send the input to the database
+		$this->Listing_model->createListing($listing);
+
+		// Go back to the listings
+		redirect('listings/show');
 
 	}
 
@@ -120,12 +136,12 @@ class Listings extends CI_Controller{
 	// The seller has clicked the update button so change the database entries
 	public function update(){
 		// Retrieve the input values from the form
-		$params["lID"] = $this->input->post('listID_in');
-		$params["inventory"] = $this->input->post('inventory_in');
-		$params["price"] = $this->input->post('price_in');
+		$params["lID"] = $this->input->post('listID');
+		$params["inventory"] = $this->input->post('inventory');
+		$params["price"] = $this->input->post('price');
 		$params["title"] = $this->input->post('title');
-		$params["description"] = $this->input->post('descript_in');
-		$params["pickup"] = $this->input->post('pickup_in');
+		$params["description"] = $this->input->post('descript');
+		$params["pickup"] = $this->input->post('pickup');
 
 		// Perform data vailidation here
 
@@ -145,4 +161,13 @@ class Listings extends CI_Controller{
 	}
 
 // Deletion functions
+
+	public function delete($lID){
+		// delete the listings
+		$this->Listing_model->removeListing($lID);
+
+		// render the show listings page
+		$this->session->set_userdata("flash", "The Listing has been deleted");
+		redirect("listings/show");
+	}
 }

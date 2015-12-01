@@ -43,17 +43,22 @@
 		Edit Listing:
 		<br>
 		<br>
+		<form action="<?php echo site_url('listings/update') ?>" method="post">
 			Listing Title: <input type="text" name="title" value="<?php echo $listing['title'] ?>">
+			<input type="hidden" name="listID" value="<?php echo $listing['listID'] ?>">
 			<br>
-			Number of Eggs: <input type="text" name="eggs" value=<?php echo $listing['inventory'] ?>>
+			Number of Eggs: <input type="text" size="3" name="inventory" value=<?php echo $listing['inventory'] ?>>
 			<br>
-			Price: <input type="text" name="price" value=<?php echo $listing['price'] ?>>
+			Price: <input type="text" name="price" size="4" value=<?php echo $listing['price'] ?>>
 			<br>
+			Pickup: <input type="radio" name="pickup" value="1" <?php if($listing['pickup'] == 1) echo "checked"; ?>>
+			Delivery: <input type="radio" name="pickup" value="0" <?php if(!$listing['pickup']) echo "checked"; ?>><br>
 			Description: <br>
-			 <textarea type="text" name="description" cols = '60' rows = '15'><?php echo $listing['description'] ?></textarea>
+			 <textarea type="text" name="descript" cols = '60' rows = '15'><?php echo $listing['description'] ?></textarea>
 			<br>
 			<br>
-			<button>Save Changes</button> <button>Cancel Changes</button> 
+			<button>Save Changes</button> <button type="button" onclick="gotoURL('<?php echo site_url('listings/show')?>')">Cancel Changes</button> 
+		</form>
 	</div>
 
 	<div id = 'seller_map'>

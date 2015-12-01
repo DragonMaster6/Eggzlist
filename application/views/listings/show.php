@@ -23,7 +23,8 @@
 			echo $type;
 		echo "<div id='seller_description'>
 				".$listing['description']."<br>
-				<button onclick='gotoURL(\"".site_url("listings/edit")."\")'>Edit Listing</button><button>Delete Listing</button>
+				<button onclick='gotoURL(\"".site_url("listings/edit")."\")'>Edit Listing</button>
+				<button onclick='gotoURL(\"".site_url("listings/delete/".$listing['listID'])."\")'>Delete Listing</button>
 			</div>
 		</div>
 		<div id='seller_map'>
@@ -43,7 +44,19 @@
 	}else{
 		// Since the seller doesn't have a listing posted, give them the option to create one
 		echo "Looks like you don't have any eggs listed.<br>
-			Create a new listings? <button> Create </button>";
+			Create a new listings?";
+
+		echo "<div id='create_listing'>
+				<form action='".site_url('listings/create')."' method='post'>
+					Title: <input type='text' name='title'><br>
+					Pickup: <input type='radio' name='pickup_type' value='1' checked> Delivery: <input type='radio' name='pickup_type' value='0'><br>
+					Price: $<input type='text' name='price' size='4'><br>
+					Inventory: <input type='text' name='inventory' size='3'><br>
+					Description: <br>
+					<textarea name='description' cols='60' rows='20'></textarea><br>
+					<input type='submit' value='Create'>
+				</form>
+			</div>";
 	}
 ?>
 </div>

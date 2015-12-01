@@ -81,20 +81,10 @@
 	</div>
 
 	<div id="map">This is where the map will go as soon as a valid key is given</div>
-	<div id="map_search_container">
-		<input type="text" id="map_search" class="input"><button id="map_search_btn" class="button">Search Listings</button>
-	</div>
-
 	<div id="listings_container">
 		<div id="listings_header">
-			 Listings
-			<select id="sort_filter" name="sort_filter" style="float:left">
-				<option value="asc_price">Ascending Price</option>
-				<option value="dsc_price">Descending Price</option>
-				<option value="alpha"> Alphabetial </option>
-				<option value="dist"> Distance </option>
-			</select>
-			
+			<div style='text-align:left;float:left;'> <img src="<?php echo base_url("assets/pics/chick_pic.png") ?>" style='width: 30px;height:40;'> = 12 eggs</div>
+			Listings
 		</div>
 		<div id="item_container">
 		</div>
