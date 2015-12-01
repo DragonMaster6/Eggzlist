@@ -134,12 +134,12 @@
 			<!-- Ask for seller's state -->
 			<hr>
 			<b>Enter state name of residence*</b><br>
-			<input type="text" name="state"></input><br>
+			<input type="text" size="2" name="state"></input><br>
 			
 			<!-- Ask for seller's postal code -->
 			<hr>
 			<b>Enter postal code*</b><br>
-			<input type="text" name="pcode"></input><br>
+			<input type="text" size="5" name="pcode"></input><br>
 			
 			<!-- Ask for seller's perfered cross roads location -->
 			<hr>

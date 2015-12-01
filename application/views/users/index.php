@@ -56,7 +56,7 @@
 	<!-- Filter Container -->
 	<div id="filter_container">
 		<b>Breeds</b><br>
-		<input type="checkbox" name="breed_filter" class="breed_filter" value="leghorn">Leg horn</input>
+		<input type="checkbox" name="breed_filter" class="breed_filter" value="leg horn">Leg horn</input>
 		<input type="checkbox" name="breed_filter" class="breed_filter" value="marans">Marans</input>
 		<input type="checkbox" name="breed_filter" class="breed_filter" value="silkie">Silkie</input>
 		<input type="checkbox" name="breed_filter" class="breed_filter" value="other">Other</input><br>
