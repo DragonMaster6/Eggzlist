@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2015 at 09:16 PM
+-- Generation Time: Dec 03, 2015 at 04:04 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -39,23 +39,16 @@ CREATE TABLE IF NOT EXISTS `Listings` (
   `rating` int(10) unsigned NOT NULL,
   `inventory` int(11) NOT NULL,
   `private` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Listings`
 --
 
 INSERT INTO `Listings` (`listID`, `sellerID`, `title`, `description`, `pickup`, `price`, `status`, `start`, `finish`, `rating`, `inventory`, `private`) VALUES
-(1, 1, 'Eggs for Sale near UCCS', 'Fresh Eggs every other day. Delicious Omelette Wednesdays', 0, 5, 0, '2015-10-28 00:00:00', NULL, 0, 36, 0),
-(4, 1, '', '', 0, 6, 0, '2015-10-28 00:00:00', NULL, 0, 24, 1),
-(5, 4, 'BUY MY EGGS!!', 'Excellent source of protein and fresh every day!', 1, 6, 1, '2015-11-04 00:00:00', NULL, 0, 12, 0),
-(6, 4, 'This is a test Title', 'This is a test description of an egg listing post', 0, 6, 1, '2015-11-05 00:00:00', NULL, 0, 24, 0),
-(7, 3, '', '', 1, 5, 1, '2015-11-06 00:00:00', NULL, 0, 24, 0),
-(8, 3, '', '', 1, 5, 1, '2015-11-07 00:00:00', NULL, 0, 36, 0),
-(9, 5, '', '', 1, 8, 1, '2015-11-08 00:00:00', NULL, 0, 18, 0),
-(10, 5, '', '', 1, 8, 1, '2015-11-09 00:00:00', NULL, 0, 18, 0),
-(11, 2, '', '', 0, 6, 1, '2015-11-11 00:00:00', NULL, 0, 12, 0),
-(12, 2, '', '', 0, 6, 1, '2015-11-12 00:00:00', NULL, 0, 24, 0);
+(3, 15, 'Fresh Eggs from the Springs', 'Hello one and all! I have some fresh eggs here for our Omelette wednesdays so come one, come all!<br>\r\n\r\nEdit: We are running out! Come quick!\r\n<br>\r\n<br>\r\nWe have more now', 1, 5, 0, '2015-11-30 20:12:47', NULL, 0, 39, 0),
+(4, 16, 'Fresh eggz as of 12/1', 'Our chickens have just laid so come get them while they are fresh! Forget Omelette Wednesdays come to Egg Tuesdays!', 1, 4, 0, '2015-12-01 09:57:12', NULL, 0, 24, 0),
+(5, 17, 'Eggs for sale', 'These are magic eggs... :)', 1, 4, 0, '2015-12-01 17:20:40', NULL, 0, 35, 0);
 
 -- --------------------------------------------------------
 
@@ -72,16 +65,14 @@ CREATE TABLE IF NOT EXISTS `Notifications` (
   `message` varchar(1024) NOT NULL,
   `posted` datetime NOT NULL,
   `eggs` int(12) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Notifications`
 --
 
 INSERT INTO `Notifications` (`noteID`, `toUserID`, `fromUserID`, `type`, `subject`, `message`, `posted`, `eggs`) VALUES
-(4, 1, 7, 2, 'Omelette Wednesdays', 'I would love to have 10 of your delicious eggs so I could make omelettes myself', '2015-11-27 18:50:16', 10),
-(5, 1, 4, 2, 'Team Work', 'I''d like 5 of your eggs, where would be a good place to meet up?', '2015-11-28 12:14:16', 5),
-(6, 1, 5, 2, 'Hey Ben!', 'I''d love some of your eggs for a breakfast party I am planning. Can we meet up wednesday at noon?', '2015-11-28 12:15:19', 20);
+(2, 20, 21, 2, 'MAGIC EGGS', 'I WANT YOUR MAGIC EGGS!', '2015-12-01 17:31:08', 12);
 
 -- --------------------------------------------------------
 
@@ -103,19 +94,18 @@ CREATE TABLE IF NOT EXISTS `Sellers` (
   `lat` double NOT NULL,
   `lng` double NOT NULL,
   `rating` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Sellers`
 --
 
 INSERT INTO `Sellers` (`sellerID`, `numChick`, `feed`, `eggrate`, `breeds`, `street`, `city`, `state`, `pcode`, `xroad`, `lat`, `lng`, `rating`) VALUES
-(1, 5, 'pikes beak ', 28, 'Leghorn', '9398 west 104th drive', 'westminster', 'co', 80918, 'hen drive, rooster street', 39.882616, -105.103585, 0),
-(2, 10, 'Organic', 63, 'Plymouth Rock', '3616 sheffield lane', 'colorado springs', 'co', 80907, NULL, 38.884279, -104.798245, 0),
-(3, 5, 'Organic', 28, 'Long horn', '5061 perry street', 'denver', 'co', 80221, NULL, 39.788498, -105.039475, 0),
-(4, 4, 'Organic', 21, 'marans,silkie', '2775 el capitan drive', 'colorado springs', 'co', 80918, NULL, 38.908058, -104.775224, 0),
-(5, 9, 'Organic', 56, 'Silkie', '3705 windsor avenue', 'colorado springs', 'co', 80907, NULL, 38.88452, -104.794899, 0),
-(6, 5, 'pikes beak', 28, 'long horn', '835 33rd Street', 'boulder', 'co', 80303, 'Aurora Ave and 30th Street', 40.002397, -105.250535, 0);
+(15, 2, 'pikes beak', 14, 'leg horn', 'dublin', 'colorado springs', 'CO', 80927, 'markshaffel and dublin', 38.833358, -104.820851, 0),
+(16, 5, 'pikes beak', 28, 'marans,leg horn', '104th Drive', 'westminster', 'co', 80021, '100th Ave and Wadsworth Parkway', 39.920491, -105.087725, 0),
+(17, 6, 'pikes beak', 35, 'silky', 'uccs', 'colorado springs', 'co', 80919, 'austin bluffs', 38.833358, -104.820851, 0),
+(18, 8, 'ASLDFJKASDF', 24, 'ASL;FDJAS;DKFLJ;', 'KINGS ROAD', 'ADA', 'OK', 74820, 'KINGS ROAD AND BROADWAY', 34.771926, -96.680535, 0),
+(19, 2, 'pikes beak', 14, 'other', 'streetName', 'CS', 'CO', 80000, 'asdfghj ggjygc hhyf', 38.833358, -104.820851, 0);
 
 -- --------------------------------------------------------
 
@@ -131,21 +121,21 @@ CREATE TABLE IF NOT EXISTS `Users` (
   `dname` varchar(128) NOT NULL,
   `pass` varchar(10) NOT NULL,
   `email` varchar(256) NOT NULL,
-  `phone` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `phone` varchar(10) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `Users`
 --
 
 INSERT INTO `Users` (`userID`, `sellerID`, `fname`, `lname`, `dname`, `pass`, `email`, `phone`) VALUES
-(1, 1, 'Ben', 'Matson', 'DragonMaster', 'dragon', 'master6@pikesbeak.com', 1234567890),
-(2, 2, 'Janet', 'Atkins', 'jatkins', 'pass', 'jatkins@pikesbeak.com', 2147483647),
-(3, 4, 'Daniel', 'Taylor', 'dtaylor', 'pass', 'dtaylor@pikesbeak.com', 1472583696),
-(4, 3, 'Patrick', 'Anderson', 'panderson', 'pass', 'panderson@pikesbeak.com', 147820369),
-(5, 5, 'Kendra', 'Wilson', 'kwilson', 'pass', 'kwilson@pikesbeak.com', 1236547890),
-(6, 6, 'Guest', 'Person', 'SecretShopper', 'secret', 'gperson@pikesbeak.com', 111222333),
-(7, NULL, 'Bob', 'Hillson', 'SecretShopper2', 'pass', 'test@yahoo.com', 1111111111);
+(16, NULL, 'JANET', 'ATKINS', 'JATKINS', 'iyaayas.', 'janet_atkins11@hotmail.com', '2108420138'),
+(18, 15, 'RICH', 'ATKINS', 'RATKINS', 'iyaayas.', 'janet_atkins11@hotmail.com', '2108420138'),
+(19, 16, 'Ben', 'Matson', 'TheEggMaster', 'dragon', 'dragonmaster1694@gmail.com', '3036192400'),
+(20, 17, 'karlie', 'van arnam', 'karlie', 'password', 'fake@gmail.com', '7196600718'),
+(21, NULL, 'ROB', 'BRUNK', 'ROB', 'PASSWORD', 'ASFDASDF', '469.525.12'),
+(22, 18, 'R', 'BRUNK', 'ROBSTER', 'PASSWORD', 'ERADSFASFD', '235423423'),
+(23, 19, 'firstName', 'lastName', 'asdf', 'pass', 'fake@fake.com', '0123456789');
 
 -- --------------------------------------------------------
 
@@ -159,16 +149,15 @@ CREATE TABLE IF NOT EXISTS `WaitLists` (
   `userID` int(11) NOT NULL,
   `start` datetime NOT NULL,
   `finish` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `WaitLists`
 --
 
 INSERT INTO `WaitLists` (`waitID`, `listID`, `userID`, `start`, `finish`) VALUES
-(14, 1, 7, '2015-11-27 18:50:16', NULL),
-(15, 4, 4, '2015-11-28 12:14:16', NULL),
-(16, 1, 5, '2015-11-28 12:15:19', NULL);
+(1, 3, 20, '2015-12-01 17:16:45', NULL),
+(2, 5, 21, '2015-12-01 17:31:08', NULL);
 
 --
 -- Indexes for dumped tables
@@ -215,27 +204,27 @@ ALTER TABLE `WaitLists`
 -- AUTO_INCREMENT for table `Listings`
 --
 ALTER TABLE `Listings`
-  MODIFY `listID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `listID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `Notifications`
 --
 ALTER TABLE `Notifications`
-  MODIFY `noteID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `noteID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `Sellers`
 --
 ALTER TABLE `Sellers`
-  MODIFY `sellerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `sellerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `WaitLists`
 --
 ALTER TABLE `WaitLists`
-  MODIFY `waitID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+  MODIFY `waitID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -76,7 +76,7 @@ $(document).ready(function(){
         gotoURL(SITE_DOMAIN);
       }else{
         // authentication failure
-        $("#error_container").html("Username or Password is incorrect");
+        $("#message_container").html("Username or Password is incorrect");
       }
     })
     .fail(function(msg){
